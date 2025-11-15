@@ -1,4 +1,5 @@
 import { Heart, Award, Users } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const features = [
   {
@@ -19,11 +20,21 @@ const features = [
 ];
 
 export const About = () => {
+  const { ref: leftRef, isVisible: leftVisible } = useScrollAnimation({ threshold: 0.3 });
+  const { ref: rightRef, isVisible: rightVisible } = useScrollAnimation({ threshold: 0.3 });
+
   return (
-    <section className="py-24 bg-background">
+    <section id="about" className="py-24 bg-background">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
-          <div className="animate-slide-in-left">
+          <div 
+            ref={leftRef}
+            className={`transition-all duration-1000 ${
+              leftVisible 
+                ? 'opacity-100 translate-x-0' 
+                : 'opacity-0 -translate-x-20'
+            }`}
+          >
             <h2 className="mb-6 text-4xl font-bold md:text-5xl lg:text-6xl">
               The Art of
               <br />
@@ -41,12 +52,24 @@ export const About = () => {
             </p>
           </div>
 
-          <div className="grid gap-6 animate-slide-in-right">
+          <div 
+            ref={rightRef}
+            className={`grid gap-6 transition-all duration-1000 ${
+              rightVisible 
+                ? 'opacity-100 translate-x-0' 
+                : 'opacity-0 translate-x-20'
+            }`}
+          >
             {features.map((feature, index) => (
               <div
                 key={feature.title}
-                className="group flex gap-4 rounded-lg border border-border bg-card p-6 transition-all duration-500 hover:border-primary hover:shadow-xl"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className={`group flex gap-4 rounded-lg border border-border bg-card p-6 transition-all duration-500 hover:border-primary hover:shadow-xl ${
+                  rightVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
+                style={{ 
+                  transitionDelay: rightVisible ? `${index * 100}ms` : '0ms',
+                  transitionDuration: '700ms'
+                }}
               >
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary transition-all duration-500 group-hover:bg-primary group-hover:text-primary-foreground">
                   <feature.icon className="h-6 w-6" />

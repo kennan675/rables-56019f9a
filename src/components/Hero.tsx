@@ -1,14 +1,28 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-cake.jpg";
+import { useScrollPosition } from "@/hooks/useScrollPosition";
 
 export const Hero = () => {
+  const scrollY = useScrollPosition();
+  const parallaxOffset = scrollY * 0.5;
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section className="relative h-screen w-full overflow-hidden">
-      {/* Background Image with Overlay */}
+    <section id="hero" className="relative h-screen w-full overflow-hidden">
+      {/* Background Image with Overlay and Parallax */}
       <div 
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroImage})` }}
+        className="absolute inset-0 bg-cover bg-center transition-transform duration-100"
+        style={{ 
+          backgroundImage: `url(${heroImage})`,
+          transform: `translateY(${parallaxOffset}px)`,
+        }}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-primary/80 via-primary/60 to-secondary/70" />
       </div>
@@ -29,6 +43,7 @@ export const Hero = () => {
               <Button 
                 size="lg" 
                 className="group bg-secondary hover:bg-secondary/90 text-secondary-foreground text-lg px-8 py-6"
+                onClick={() => scrollToSection('contact')}
               >
                 Order Now
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
@@ -37,6 +52,7 @@ export const Hero = () => {
                 size="lg" 
                 variant="outline" 
                 className="border-2 border-primary-foreground bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary text-lg px-8 py-6"
+                onClick={() => scrollToSection('products')}
               >
                 View Menu
               </Button>

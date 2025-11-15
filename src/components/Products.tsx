@@ -2,6 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import weddingCake from "@/assets/wedding-cake.jpg";
 import birthdayCake from "@/assets/birthday-cake.jpg";
 import cupcakes from "@/assets/cupcakes.jpg";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const products = [
   {
@@ -25,10 +26,19 @@ const products = [
 ];
 
 export const Products = () => {
+  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
+
   return (
-    <section className="py-24 bg-muted/30">
+    <section id="products" className="py-24 bg-muted/30">
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="mb-16 text-center animate-fade-in-up">
+        <div 
+          ref={titleRef}
+          className={`mb-16 text-center transition-all duration-1000 ${
+            titleVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-20'
+          }`}
+        >
           <h2 className="mb-4 text-4xl font-bold md:text-5xl lg:text-6xl">
             Our <span className="gradient-text">Signature</span> Creations
           </h2>
@@ -38,11 +48,21 @@ export const Products = () => {
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {products.map((product, index) => (
-            <Card 
-              key={product.title}
-              className="group overflow-hidden border-none shadow-lg hover-lift animate-fade-in-up bg-card"
-              style={{ animationDelay: `${index * 0.1}s` }}
+          {products.map((product, index) => {
+            const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
+            
+            return (
+              <div
+                key={product.title}
+                ref={ref}
+                className={`transition-all duration-700 ${
+                  isVisible 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-20'
+                }`}
+                style={{ transitionDelay: `${index * 150}ms` }}
+              >
+                <Card className="group overflow-hidden border-none shadow-lg hover-lift bg-card h-full"
             >
               <div className="relative h-64 overflow-hidden">
                 <img
@@ -56,11 +76,13 @@ export const Products = () => {
                 <CardTitle className="text-2xl">{product.title}</CardTitle>
                 <CardDescription className="text-base">{product.description}</CardDescription>
               </CardHeader>
-              <CardContent>
-                <p className="text-xl font-semibold text-primary">{product.price}</p>
-              </CardContent>
-            </Card>
-          ))}
+                <CardContent>
+                  <p className="text-xl font-semibold text-primary">{product.price}</p>
+                </CardContent>
+              </Card>
+            </div>
+            );
+          })}
         </div>
       </div>
     </section>
