@@ -2,12 +2,24 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export const Contact = () => {
+  const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
+  const { ref: formRef, isVisible: formVisible } = useScrollAnimation({ threshold: 0.2 });
+  const { ref: infoRef, isVisible: infoVisible } = useScrollAnimation({ threshold: 0.2 });
+
   return (
-    <section className="py-24 bg-muted/30">
+    <section id="contact" className="py-24 bg-muted/30">
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="mb-16 text-center animate-fade-in-up">
+        <div 
+          ref={titleRef}
+          className={`mb-16 text-center transition-all duration-1000 ${
+            titleVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-20'
+          }`}
+        >
           <h2 className="mb-4 text-4xl font-bold md:text-5xl lg:text-6xl">
             Let's Create Something
             <br />
@@ -20,7 +32,14 @@ export const Contact = () => {
 
         <div className="grid gap-12 lg:grid-cols-2">
           {/* Contact Form */}
-          <div className="animate-slide-in-left">
+          <div 
+            ref={formRef}
+            className={`transition-all duration-1000 ${
+              formVisible 
+                ? 'opacity-100 translate-x-0' 
+                : 'opacity-0 -translate-x-20'
+            }`}
+          >
             <form className="space-y-6">
               <div>
                 <Input 
@@ -58,7 +77,14 @@ export const Contact = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="space-y-8 animate-slide-in-right">
+          <div 
+            ref={infoRef}
+            className={`space-y-8 transition-all duration-1000 ${
+              infoVisible 
+                ? 'opacity-100 translate-x-0' 
+                : 'opacity-0 translate-x-20'
+            }`}
+          >
             <div className="rounded-lg border border-border bg-card p-8">
               <h3 className="mb-6 text-2xl font-semibold">Get in Touch</h3>
               <div className="space-y-6">
