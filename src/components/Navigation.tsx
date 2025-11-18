@@ -16,6 +16,7 @@ export const Navigation = () => {
     { href: "/", label: "Home" },
     { href: "/shop", label: "Shop" },
     { href: "/custom-orders", label: "Custom Orders" },
+    { href: "/custom-cake", label: "Custom Cake" },
     { href: "/baking-classes", label: "Classes" },
     { href: "/#about", label: "About" },
     { href: "/#contact", label: "Contact" },
@@ -42,10 +43,10 @@ export const Navigation = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-500 ${
         isScrolled
-          ? 'bg-background/95 backdrop-blur-lg shadow-lg'
-          : 'bg-transparent'
+          ? 'bg-background/95 backdrop-blur-xl border-border/80 shadow-md'
+          : 'bg-background/40 backdrop-blur-xl border-transparent'
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-6 lg:px-12 h-20">
@@ -64,15 +65,21 @@ export const Navigation = () => {
               key={link.href}
               to={link.href}
               onClick={(e) => handleNavClick(link.href, e)}
-              className={`text-sm font-medium transition-colors ${
-                isScrolled ? 'text-foreground hover:text-primary' : 'text-primary-foreground hover:text-accent'
+              className={`relative text-sm font-medium tracking-wide transition-colors after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full ${
+                isScrolled
+                  ? 'text-foreground hover:text-primary'
+                  : 'text-foreground hover:text-primary'
               }`}
             >
               {link.label}
             </Link>
           ))}
           <Link to="/cart" className="relative">
-            <Button variant="ghost" size="icon" className={isScrolled ? '' : 'text-primary-foreground hover:text-accent hover:bg-primary-foreground/10'}>
+            <Button
+              variant="ghost"
+              size="icon"
+              className={isScrolled ? 'text-foreground hover:bg-muted/60' : 'text-foreground hover:bg-muted/60'}
+            >
               <ShoppingCart className="h-5 w-5" />
               {cartCount > 0 && (
                 <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-primary text-xs text-primary-foreground flex items-center justify-center">
@@ -98,7 +105,7 @@ export const Navigation = () => {
             variant="ghost"
             size="icon"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className={isScrolled ? '' : 'text-primary-foreground hover:text-accent hover:bg-primary-foreground/10'}
+            className={isScrolled ? 'text-foreground hover:bg-muted/60' : 'text-foreground hover:bg-muted/60'}
           >
             {isMenuOpen ? <X /> : <Menu />}
           </Button>
@@ -107,7 +114,7 @@ export const Navigation = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="lg:hidden fixed inset-0 top-20 bg-background/98 backdrop-blur-lg z-40">
+        <div className="lg:hidden fixed inset-0 top-20 bg-background/95 backdrop-blur-xl border-t border-border/70 z-40">
           <nav className="flex flex-col gap-6 p-8">
             {navLinks.map((link) => (
               <Link

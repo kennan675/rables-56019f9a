@@ -41,9 +41,9 @@ export const About = () => {
               <span className="gradient-text">Baking Excellence</span>
             </h2>
             <p className="mb-8 text-lg text-muted-foreground leading-relaxed">
-              At Rables Bakes, we believe every celebration deserves something extraordinary. 
-              For over a decade, we've been transforming simple ingredients into edible art, 
-              creating cakes that not only taste divine but become the centerpiece of your most 
+              At Rable Bakes, we believe every celebration in Nairobi and Eldoret deserves something extraordinary.
+              For over a decade, we've been transforming simple ingredients into edible art,
+              creating cakes that not only taste divine but become the centerpiece of your most
               cherished memories.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">

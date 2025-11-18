@@ -8,41 +8,41 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 32 20% 97%;
-    --foreground: 30 10% 15%;
+    --background: 30 80% 98%;
+    --foreground: 18 25% 22%;
 
     --card: 0 0% 100%;
-    --card-foreground: 30 10% 15%;
+    --card-foreground: 18 25% 22%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 30 10% 15%;
+    --popover-foreground: 18 25% 22%;
 
-    --primary: 25 45% 45%;
-    --primary-foreground: 32 20% 97%;
+    --primary: 43 70% 55%;
+    --primary-foreground: 32 100% 98%;
 
-    --secondary: 340 60% 55%;
-    --secondary-foreground: 32 20% 97%;
+    --secondary: 340 90% 90%;
+    --secondary-foreground: 18 30% 20%;
 
-    --muted: 32 15% 92%;
-    --muted-foreground: 30 8% 45%;
+    --muted: 30 40% 94%;
+    --muted-foreground: 18 15% 40%;
 
-    --accent: 40 85% 85%;
-    --accent-foreground: 30 10% 15%;
+    --accent: 40 80% 85%;
+    --accent-foreground: 18 25% 22%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 32 20% 97%;
 
-    --border: 32 15% 88%;
-    --input: 32 15% 88%;
-    --ring: 25 45% 45%;
+    --border: 30 25% 88%;
+    --input: 30 25% 88%;
+    --ring: 43 70% 55%;
 
     --radius: 0.75rem;
 
     /* Custom design tokens */
-    --cream: 40 40% 95%;
-    --warm-brown: 25 35% 35%;
-    --rose: 340 65% 60%;
-    --gold: 40 70% 70%;
+    --cream: 30 80% 98%;
+    --warm-brown: 18 30% 24%;
+    --rose: 340 80% 88%;
+    --gold: 43 70% 55%;
     
     /* Gradients */
     --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);

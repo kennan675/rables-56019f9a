@@ -60,7 +60,7 @@ const classes = [
 const BakingClasses = () => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
   
-  const BUSINESS_PHONE = "254722123456";
+  const BUSINESS_PHONE = "254704209055";
   
   const handleEnrollClick = (classItem: typeof classes[0]) => {
     const message = encodeURIComponent(

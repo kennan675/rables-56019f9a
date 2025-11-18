@@ -8,10 +8,12 @@ import Index from "./pages/Index";
 import Shop from "./pages/Shop";
 import ProductDetail from "./pages/ProductDetail";
 import CustomOrders from "./pages/CustomOrders";
+import CustomCake from "./pages/CustomCake";
 import BakingClasses from "./pages/BakingClasses";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import NotFound from "./pages/NotFound";
+import { Cakes, CakesByCategory } from "./pages/Cakes";
 
 const queryClient = new QueryClient();
 
@@ -25,8 +27,11 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/shop" element={<Shop />} />
+            <Route path="/cakes" element={<Cakes />} />
+            <Route path="/cakes/:categoryId" element={<CakesByCategory />} />
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/custom-orders" element={<CustomOrders />} />
+            <Route path="/custom-cake" element={<CustomCake />} />
             <Route path="/baking-classes" element={<BakingClasses />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/checkout" element={<Checkout />} />

@@ -62,25 +62,24 @@ export const Products = () => {
                 }`}
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
-                <Card className="group overflow-hidden border-none shadow-lg hover-lift bg-card h-full"
-            >
-              <div className="relative h-64 overflow-hidden">
-                <img
-                  src={product.image}
-                  alt={product.title}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <Card className="group overflow-hidden border border-border/70 bg-card/90 shadow-md hover:shadow-xl hover-lift h-full">
+                  <div className="relative h-64 overflow-hidden">
+                    <img
+                      src={product.image}
+                      alt={product.title}
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  </div>
+                  <CardHeader>
+                    <CardTitle className="text-2xl">{product.title}</CardTitle>
+                    <CardDescription className="text-base">{product.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-xl font-semibold text-primary">{product.price}</p>
+                  </CardContent>
+                </Card>
               </div>
-              <CardHeader>
-                <CardTitle className="text-2xl">{product.title}</CardTitle>
-                <CardDescription className="text-base">{product.description}</CardDescription>
-              </CardHeader>
-                <CardContent>
-                  <p className="text-xl font-semibold text-primary">{product.price}</p>
-                </CardContent>
-              </Card>
-            </div>
             );
           })}
         </div>
