@@ -2,10 +2,12 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-cake.jpg";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
+import { useNavigate } from "react-router-dom";
 
 export const Hero = () => {
   const scrollY = useScrollPosition();
   const parallaxOffset = scrollY * 0.5;
+  const navigate = useNavigate();
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -43,7 +45,7 @@ export const Hero = () => {
               <Button 
                 size="lg" 
                 className="group bg-secondary hover:bg-secondary/90 text-secondary-foreground text-lg px-8 py-6"
-                onClick={() => scrollToSection('contact')}
+                onClick={() => navigate('/shop')}
               >
                 Order Now
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
@@ -54,7 +56,7 @@ export const Hero = () => {
                 className="border-2 border-primary-foreground bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary text-lg px-8 py-6"
                 onClick={() => scrollToSection('products')}
               >
-                View Menu
+                View Gallery
               </Button>
             </div>
           </div>
