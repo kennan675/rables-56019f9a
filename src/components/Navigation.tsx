@@ -52,9 +52,7 @@ export const Navigation = () => {
       <div className="container mx-auto flex items-center justify-between px-6 lg:px-12 h-20">
         <Link
           to="/"
-          className={`text-2xl font-serif font-bold transition-colors duration-300 ${
-            isScrolled ? 'text-foreground' : 'text-primary-foreground'
-          }`}
+          className={`text-2xl font-serif font-bold transition-colors duration-300 text-foreground`}
         >
           Rable <span className="gradient-text">Bakes</span>
         </Link>
