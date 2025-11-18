@@ -1,29 +1,42 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, ShoppingCart } from "lucide-react";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
+import { useCart } from "@/contexts/CartContext";
 
 export const Navigation = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const scrollY = useScrollPosition();
-  const isScrolled = scrollY > 50;
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const scrollPosition = useScrollPosition();
+  const isScrolled = scrollPosition > 50;
+  const { cartCount } = useCart();
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
+  const navLinks = [
+    { href: "/", label: "Home" },
+    { href: "/shop", label: "Shop" },
+    { href: "/custom-orders", label: "Custom Orders" },
+    { href: "/baking-classes", label: "Classes" },
+    { href: "/#about", label: "About" },
+    { href: "/#contact", label: "Contact" },
+  ];
+
+  const handleNavClick = (href: string, e: React.MouseEvent) => {
+    if (href.includes('#')) {
+      if (window.location.pathname !== '/') {
+        navigate('/');
+        setTimeout(() => {
+          const element = document.querySelector(href.split('#')[1] ? `#${href.split('#')[1]}` : '#home');
+          element?.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      } else {
+        e.preventDefault();
+        const element = document.querySelector(href.split('#')[1] ? `#${href.split('#')[1]}` : '#home');
+        element?.scrollIntoView({ behavior: 'smooth' });
+      }
+      setIsMenuOpen(false);
     } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isOpen]);
-
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsOpen(false);
+      setIsMenuOpen(false);
     }
   };
 
@@ -35,83 +48,80 @@ export const Navigation = () => {
           : 'bg-transparent'
       }`}
     >
-      <div className="container mx-auto px-6 lg:px-12">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <button
-            onClick={() => scrollToSection('hero')}
-            className={`text-2xl font-bold font-serif transition-colors duration-300 ${
-              isScrolled ? 'text-foreground' : 'text-primary-foreground'
-            }`}
-          >
-            Rables Bakes
-          </button>
+      <div className="container mx-auto flex items-center justify-between px-6 lg:px-12 h-20">
+        <Link
+          to="/"
+          className={`text-2xl font-serif font-bold transition-colors duration-300 ${
+            isScrolled ? 'text-foreground' : 'text-primary-foreground'
+          }`}
+        >
+          Rable <span className="gradient-text">Bakes</span>
+        </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8">
-            {['Products', 'About', 'Contact'].map((item) => (
-              <button
-                key={item}
-                onClick={() => scrollToSection(item.toLowerCase())}
-                className={`text-sm font-medium transition-all duration-300 hover:text-secondary ${
-                  isScrolled ? 'text-foreground' : 'text-primary-foreground'
-                }`}
-              >
-                {item}
-              </button>
-            ))}
-            <Button
-              size="sm"
-              className={`transition-all duration-300 ${
-                isScrolled
-                  ? 'bg-secondary hover:bg-secondary/90'
-                  : 'bg-primary-foreground text-primary hover:bg-primary-foreground/90'
+        <nav className="hidden lg:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              to={link.href}
+              onClick={(e) => handleNavClick(link.href, e)}
+              className={`text-sm font-medium transition-colors ${
+                isScrolled ? 'text-foreground hover:text-primary' : 'text-primary-foreground hover:text-accent'
               }`}
-              onClick={() => scrollToSection('contact')}
             >
-              <Phone className="mr-2 h-4 w-4" />
-              Order Now
+              {link.label}
+            </Link>
+          ))}
+          <Link to="/cart" className="relative">
+            <Button variant="ghost" size="icon" className={isScrolled ? '' : 'text-primary-foreground hover:text-accent hover:bg-primary-foreground/10'}>
+              <ShoppingCart className="h-5 w-5" />
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-primary text-xs text-primary-foreground flex items-center justify-center">
+                  {cartCount}
+                </span>
+              )}
             </Button>
-          </div>
+          </Link>
+        </nav>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className={`md:hidden transition-colors duration-300 ${
-              isScrolled ? 'text-foreground' : 'text-primary-foreground'
-            }`}
+        <div className="flex lg:hidden gap-2">
+          <Link to="/cart" className="relative">
+            <Button variant="ghost" size="icon" className={isScrolled ? '' : 'text-primary-foreground hover:text-accent hover:bg-primary-foreground/10'}>
+              <ShoppingCart className="h-5 w-5" />
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-primary text-xs text-primary-foreground flex items-center justify-center">
+                  {cartCount}
+                </span>
+              )}
+            </Button>
+          </Link>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className={isScrolled ? '' : 'text-primary-foreground hover:text-accent hover:bg-primary-foreground/10'}
           >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+            {isMenuOpen ? <X /> : <Menu />}
+          </Button>
         </div>
       </div>
 
       {/* Mobile Menu */}
-      <div
-        className={`md:hidden fixed inset-0 top-20 bg-background/98 backdrop-blur-xl transition-transform duration-300 ${
-          isOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
-      >
-        <div className="flex flex-col items-center justify-center h-full gap-8">
-          {['Products', 'About', 'Contact'].map((item) => (
-            <button
-              key={item}
-              onClick={() => scrollToSection(item.toLowerCase())}
-              className="text-2xl font-medium text-foreground hover:text-secondary transition-colors"
-            >
-              {item}
-            </button>
-          ))}
-          <Button
-            size="lg"
-            className="bg-secondary hover:bg-secondary/90 text-lg px-8"
-            onClick={() => scrollToSection('contact')}
-          >
-            <Phone className="mr-2 h-5 w-5" />
-            Order Now
-          </Button>
+      {isMenuOpen && (
+        <div className="lg:hidden fixed inset-0 top-20 bg-background/98 backdrop-blur-lg z-40">
+          <nav className="flex flex-col gap-6 p-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                to={link.href}
+                onClick={(e) => handleNavClick(link.href, e)}
+                className="text-lg font-medium transition-colors hover:text-primary"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
         </div>
-      </div>
+      )}
     </nav>
   );
 };
