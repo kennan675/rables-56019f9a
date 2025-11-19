@@ -1,5 +1,6 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Link } from "react-router-dom";
+import { products } from "@/data/products";
 
 const homepageCategories = [
   {
@@ -89,6 +90,10 @@ export const HomepageCategories = () => {
               }
             };
 
+            const categoryProducts = products.filter(
+              (product) => product.category === category.id
+            );
+
             return (
               <article
                 key={category.id}
@@ -108,6 +113,27 @@ export const HomepageCategories = () => {
                     {String(index + 1).padStart(2, "0")}
                   </span>
                 </div>
+
+                {categoryProducts.length > 0 && (
+                  <div className="mb-4 grid grid-cols-3 gap-2">
+                    {categoryProducts.slice(0, 3).map((product) => (
+                      <div
+                        key={product.id}
+                        className="overflow-hidden rounded-xl border border-border/60 bg-background/40 group-hover:border-primary/70 transition-colors"
+                      >
+                        {product.images && product.images[0] && (
+                          <img
+                            src={product.images[0]}
+                            alt={product.name}
+                            className="h-20 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            loading="lazy"
+                          />
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
+
                 <p className="text-sm md:text-base text-muted-foreground mb-4">
                   {category.description}
                 </p>
