@@ -1,4 +1,5 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { Link } from "react-router-dom";
 
 const homepageCategories = [
   {
@@ -81,15 +82,23 @@ export const HomepageCategories = () => {
           {homepageCategories.map((category, index) => {
             const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
 
+            const handleScroll = () => {
+              const el = document.getElementById(`category-${category.id}`);
+              if (el) {
+                el.scrollIntoView({ behavior: "smooth", block: "start" });
+              }
+            };
+
             return (
               <article
                 key={category.id}
                 id={`category-${category.id}`}
                 ref={ref}
-                className={`group rounded-2xl border border-border bg-card/80 backdrop-blur-sm p-6 md:p-7 shadow-sm hover:shadow-xl hover:border-primary transition-all duration-700 ${
+                className={`group rounded-2xl border border-border bg-card/90 backdrop-blur-sm p-6 md:p-7 shadow-sm hover:shadow-xl hover:border-primary hover-lift cursor-pointer transition-all duration-700 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
                 }`}
                 style={{ transitionDelay: `${index * 80}ms` }}
+                onClick={handleScroll}
               >
                 <div className="flex items-start justify-between gap-4 mb-4">
                   <h3 className="text-lg md:text-xl font-semibold leading-snug">
@@ -105,11 +114,15 @@ export const HomepageCategories = () => {
                 <div className="flex items-center justify-between text-xs md:text-sm text-muted-foreground">
                   <span className="inline-flex items-center gap-2">
                     <span className="h-1 w-8 rounded-full bg-primary/40 group-hover:bg-primary transition-colors" />
-                    Scroll down for details
+                    Scroll to section
                   </span>
-                  <span className="hidden sm:inline text-[0.7rem] uppercase tracking-[0.2em]">
-                    Popular choice
-                  </span>
+                  <Link
+                    to={`/cakes/${category.id}`}
+                    className="text-primary font-medium hover:underline"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    View cakes
+                  </Link>
                 </div>
               </article>
             );

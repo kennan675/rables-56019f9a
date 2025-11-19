@@ -34,18 +34,18 @@ export const Hero = () => {
         <div className="container mx-auto px-6 lg:px-12">
           <div className="max-w-3xl animate-fade-in-up">
             <h1 className="mb-6 text-5xl font-bold leading-tight text-primary-foreground md:text-6xl lg:text-7xl">
-              Handcrafted Cakes
+              Premium Cakes,
               <br />
-              <span className="text-accent">Made with Love</span>
+              <span className="text-accent">Baked With Passion</span>
             </h1>
             <p className="mb-8 text-lg text-primary-foreground/90 md:text-xl lg:text-2xl">
-              Every cake tells a story. Let us create something special for your celebration.
+              Crafted to perfection for every occasion, from intimate moments to grand celebrations.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
               <Button 
                 size="lg" 
                 className="group bg-secondary hover:bg-secondary/90 text-secondary-foreground text-lg px-8 py-6"
-                onClick={() => navigate('/shop')}
+                onClick={() => scrollToSection('products')}
               >
                 Order Now
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
@@ -54,9 +54,9 @@ export const Hero = () => {
                 size="lg" 
                 variant="outline" 
                 className="border-2 border-primary-foreground bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-primary text-lg px-8 py-6"
-                onClick={() => scrollToSection('products')}
+                onClick={() => window.open('https://wa.me/254704209055?text=' + encodeURIComponent("Hi Rable Bakes! I'd like to customize a cake."), '_blank')}
               >
-                View Gallery
+                Customize on WhatsApp
               </Button>
             </div>
           </div>
