@@ -5,6 +5,7 @@ import { FeaturedCakes } from "@/components/FeaturedCakes";
 import { CakesGallery } from "@/components/CakesGallery";
 import { CustomCakesHighlight } from "@/components/CustomCakesHighlight";
 import { OrderProcess } from "@/components/OrderProcess";
+import { MenuPricing } from "@/components/MenuPricing";
 import { ReviewsAndClasses } from "@/components/ReviewsAndClasses";
 import { About } from "@/components/About";
 import { Contact } from "@/components/Contact";
@@ -26,6 +27,7 @@ const Index = () => {
           <CakesGallery />
           <CustomCakesHighlight />
           <OrderProcess />
+          <MenuPricing />
           <ReviewsAndClasses />
           <Products />
           <InstagramFeed />
