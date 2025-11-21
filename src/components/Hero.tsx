@@ -26,7 +26,7 @@ export const Hero = () => {
           transform: `translateY(${parallaxOffset}px)`,
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/80 via-primary/60 to-secondary/70" />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/70 via-slate-900/40 to-transparent backdrop-blur-[2px]" />
       </div>
 
       {/* Content */}
