@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-cake.jpg";
+import brandLogo from "@/assets/rable-logo.jpg";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
 import { useNavigate } from "react-router-dom";
 
@@ -61,6 +62,16 @@ export const Hero = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Brand watermark */}
+      <div className="pointer-events-none absolute inset-0 z-0">
+        <img
+          src={brandLogo}
+          alt="Rable Bakes watermark"
+          className="absolute bottom-10 right-10 h-24 w-24 opacity-30 mix-blend-luminosity brightness-150 hidden md:block"
+          loading="lazy"
+        />
       </div>
 
       {/* Scroll Indicator */}

@@ -1,4 +1,5 @@
 import { Facebook, Instagram, Twitter } from "lucide-react";
+import logo from "@/assets/rable-logo.jpg";
 
 export const Footer = () => {
   return (
@@ -6,7 +7,12 @@ export const Footer = () => {
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <h3 className="mb-4 text-2xl font-bold font-serif">Rables Bakes</h3>
+            <div className="mb-4 flex items-center gap-3">
+              <span className="inline-flex h-14 w-14 items-center justify-center overflow-hidden rounded-full border border-gold/50 bg-cream/10">
+                <img src={logo} alt="Rable Bakes logo" className="h-full w-full object-cover" loading="lazy" />
+              </span>
+              <h3 className="text-2xl font-bold font-serif">Rable Bakes</h3>
+            </div>
             <p className="text-cream/80">
               Crafting sweet memories since 2015
             </p>
