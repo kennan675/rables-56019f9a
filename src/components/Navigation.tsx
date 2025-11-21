@@ -52,11 +52,11 @@ export const Navigation = () => {
     >
       <div className="container mx-auto flex items-center justify-between px-6 lg:px-12 h-20">
         <Link to="/" className="flex items-center" aria-label="Rable Bakes home">
-          <span className="relative h-14 w-40 overflow-hidden rounded-full border border-primary/30 bg-white/80 shadow-sm">
+          <span className="relative h-14 w-14 overflow-hidden rounded-full border border-primary/40 bg-white/90 shadow-sm">
             <img
               src={logo}
               alt="Rable Bakes logo"
-              className="h-full w-full object-contain"
+              className="h-full w-full object-cover"
               loading="lazy"
             />
           </span>
