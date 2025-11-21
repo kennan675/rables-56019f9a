@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, ShoppingCart } from "lucide-react";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
 import { useCart } from "@/contexts/CartContext";
-import logo from "@/assets/rable-logo.jpg";
 
 export const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -51,15 +50,16 @@ export const Navigation = () => {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-6 lg:px-12 h-20">
-        <Link to="/" className="flex items-center" aria-label="Rable Bakes home">
-          <span className="relative h-14 w-14 overflow-hidden rounded-full border border-primary/40 bg-white/90 shadow-sm">
-            <img
-              src={logo}
-              alt="Rable Bakes logo"
-              className="h-full w-full object-cover"
-              loading="lazy"
-            />
+        <Link to="/" className="relative flex items-center" aria-label="Rable Bakes home">
+          <span className="pointer-events-none absolute -left-4 -top-4 text-6xl font-serif text-primary/20">
+            R
           </span>
+          <div className="relative flex flex-col leading-tight text-foreground">
+            <span className="text-2xl font-serif tracking-[0.3em] uppercase">Rable</span>
+            <span className="text-xs uppercase tracking-[0.6em] text-muted-foreground">
+              Bakes
+            </span>
+          </div>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-8">
