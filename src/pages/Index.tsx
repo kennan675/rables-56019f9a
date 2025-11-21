@@ -9,7 +9,6 @@ import { CustomCakesHighlight } from "@/components/CustomCakesHighlight";
 import { OrderProcess } from "@/components/OrderProcess";
 import { ReviewsAndClasses } from "@/components/ReviewsAndClasses";
 import { StoryHighlights } from "@/components/StoryHighlights";
-import { InstagramFeed } from "@/components/InstagramFeed";
 import { About } from "@/components/About";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
@@ -21,7 +20,6 @@ const Index = () => {
       <Navigation />
       <Hero />
       <PremiumRails />
-      <InstagramFeed />
       <ShopCakesCTA />
       <FeaturedCakes />
       <MenuPricing />
