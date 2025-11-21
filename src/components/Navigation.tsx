@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ShoppingCart } from "lucide-react";
+import { Menu, X, ShoppingCart, Search, Instagram, Facebook } from "lucide-react";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
 import { useCart } from "@/contexts/CartContext";
 
@@ -45,8 +45,8 @@ export const Navigation = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-500 ${
         isScrolled
-          ? 'bg-background/95 backdrop-blur-xl border-border/80 shadow-md'
-          : 'bg-background/40 backdrop-blur-xl border-transparent'
+          ? 'bg-white/95 backdrop-blur-xl border-border/70 shadow-sm'
+          : 'bg-white/70 backdrop-blur-xl border-transparent'
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-6 lg:px-12 h-20">
@@ -77,6 +77,21 @@ export const Navigation = () => {
               {link.label}
             </Link>
           ))}
+          <button
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border/70 text-foreground hover:text-primary"
+            aria-label="Search menu"
+            onClick={() => handleNavClick('/#products', new MouseEvent('click') as unknown as React.MouseEvent)}
+          >
+            <Search className="h-4 w-4" />
+          </button>
+          <div className="flex items-center gap-3 text-muted-foreground">
+            <a href="https://instagram.com/rablebakes" target="_blank" rel="noreferrer" className="transition-colors hover:text-primary" aria-label="Instagram">
+              <Instagram className="h-4 w-4" />
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noreferrer" className="transition-colors hover:text-primary" aria-label="Facebook">
+              <Facebook className="h-4 w-4" />
+            </a>
+          </div>
           <Link to="/cart" className="relative">
             <Button
               variant="ghost"
@@ -104,6 +119,11 @@ export const Navigation = () => {
               )}
             </Button>
           </Link>
+          <Button variant="ghost" size="icon" className="text-foreground" aria-label="Instagram" asChild>
+            <a href="https://instagram.com/rablebakes" target="_blank" rel="noreferrer">
+              <Instagram className="h-4 w-4" />
+            </a>
+          </Button>
           <Button
             variant="ghost"
             size="icon"
