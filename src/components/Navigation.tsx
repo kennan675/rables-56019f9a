@@ -45,18 +45,20 @@ export const Navigation = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-500 ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-xl border-border/70 shadow-sm'
-          : 'bg-white/70 backdrop-blur-xl border-transparent'
+          ? 'bg-white backdrop-blur-md border-border/70 shadow-sm'
+          : 'bg-white backdrop-blur-md border-transparent'
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-6 lg:px-12 h-20">
         <Link to="/" className="relative flex items-center" aria-label="Rable Bakes home">
-          <span className="pointer-events-none absolute -left-4 -top-4 text-6xl font-serif text-primary/20">
+          <span className="pointer-events-none absolute -left-4 -top-4 hidden text-6xl font-serif text-primary/20 md:block">
             R
           </span>
           <div className="relative flex flex-col leading-tight text-foreground">
-            <span className="text-2xl font-serif tracking-[0.3em] uppercase">Rable</span>
-            <span className="text-xs uppercase tracking-[0.6em] text-muted-foreground">
+            <span className="text-xl font-serif tracking-[0.15em] uppercase md:text-2xl md:tracking-[0.3em]">
+              Rable
+            </span>
+            <span className="text-[0.55rem] uppercase tracking-[0.35em] text-muted-foreground md:text-xs md:tracking-[0.6em]">
               Bakes
             </span>
           </div>
@@ -137,7 +139,7 @@ export const Navigation = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="lg:hidden fixed inset-0 top-20 bg-background/95 backdrop-blur-xl border-t border-border/70 z-40">
+        <div className="lg:hidden fixed inset-0 top-20 bg-white border-t border-border/70 z-40">
           <nav className="flex flex-col gap-6 p-8">
             {navLinks.map((link) => (
               <Link
