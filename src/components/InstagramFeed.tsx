@@ -1,36 +1,45 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Instagram } from "lucide-react";
 
+const placeholderImage = (label: string) =>
+  `https://placehold.co/600x600/fff5fb/b12a7c?text=${encodeURIComponent(label.replace(/\s+/g, "+"))}`;
+
 const MOCK_INSTAGRAM_POSTS = [
   {
     id: "1",
     caption: "Elegant floral wedding cake for a timeless celebration.",
     href: "https://www.instagram.com/rablebakes/",
+    image: placeholderImage("Rable Cake 01"),
   },
   {
     id: "2",
     caption: "Bright birthday cake with custom toppers.",
     href: "https://www.instagram.com/rablebakes/",
+    image: placeholderImage("Rable Cake 02"),
   },
   {
     id: "3",
     caption: "Cupcake assortment for a baby shower.",
     href: "https://www.instagram.com/rablebakes/",
+    image: placeholderImage("Rable Cake 03"),
   },
   {
     id: "4",
     caption: "Chocolate drip cake with gold accents.",
     href: "https://www.instagram.com/rablebakes/",
+    image: placeholderImage("Rable Cake 04"),
   },
   {
     id: "5",
     caption: "Corporate logo cake for a product launch.",
     href: "https://www.instagram.com/rablebakes/",
+    image: placeholderImage("Rable Cake 05"),
   },
   {
     id: "6",
     caption: "Pastel gender reveal cake surprise.",
     href: "https://www.instagram.com/rablebakes/",
+    image: placeholderImage("Rable Cake 06"),
   },
 ];
 
@@ -74,7 +83,7 @@ export const InstagramFeed = () => {
             const { ref, isVisible } = useScrollAnimation({ threshold: 0.15 });
 
             return (
-              <div
+              <figure
                 key={post.id}
                 ref={ref}
                 className={`relative aspect-square overflow-hidden rounded-2xl shadow-md transition-all duration-700 ${
@@ -86,10 +95,15 @@ export const InstagramFeed = () => {
                   href={post.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="group block w-full h-full bg-gradient-to-br from-primary/40 via-secondary/40 to-accent/40"
+                  className="group block w-full h-full"
                 >
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.4),_transparent_55%)]" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
+                  <img
+                    src={post.image}
+                    alt={post.caption}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-70 group-hover:opacity-90 transition-opacity" />
                   <div className="absolute inset-0 flex items-end p-3">
                     <p className="text-[0.7rem] text-white/90 line-clamp-3">
                       {post.caption}
@@ -100,7 +114,7 @@ export const InstagramFeed = () => {
                     View
                   </div>
                 </a>
-              </div>
+              </figure>
             );
           })}
         </div>

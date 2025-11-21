@@ -129,7 +129,6 @@ const ProductRail = ({
 
 export const PremiumRails = () => {
   const customerFavorites = products.filter((product) => product.isFeatured).slice(0, 4);
-  const weddingCollection = products.filter((product) => product.category === "wedding").slice(0, 4);
 
   return (
     <div className="bg-background">
@@ -139,13 +138,6 @@ export const PremiumRails = () => {
         items={customerFavorites}
         badgeLabel="Chef curated"
         viewAllHref="/cakes"
-      />
-      <ProductRail
-        title="Wedding Atelier"
-        subtitle="Elegant tiers, luxe textures, and couture finishes for your grand celebrations."
-        items={weddingCollection}
-        badgeLabel="Signature wedding collection"
-        viewAllHref="/cakes/wedding"
       />
     </div>
   );

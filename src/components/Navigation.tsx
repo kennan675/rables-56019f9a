@@ -14,9 +14,8 @@ export const Navigation = () => {
 
   const navLinks = [
     { href: "/", label: "Home" },
-    { href: "/shop", label: "Shop" },
+    { href: "/cakes", label: "Cakes" },
     { href: "/custom-orders", label: "Custom Orders" },
-    { href: "/custom-cake", label: "Custom Cake" },
     { href: "/baking-classes", label: "Classes" },
     { href: "/#about", label: "About" },
     { href: "/#contact", label: "Contact" },

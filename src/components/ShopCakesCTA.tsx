@@ -35,7 +35,7 @@ export const ShopCakesCTA = () => {
             <div className="flex flex-wrap gap-3">
               <Button asChild size="lg" className="text-base px-7 py-6 rounded-full">
                 <Link to="/cakes">
-                  View Cakes
+                  Browse full Cakes Menu
                   <ArrowUpRight className="h-5 w-5" />
                 </Link>
               </Button>
