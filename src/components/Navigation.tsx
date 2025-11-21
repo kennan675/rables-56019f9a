@@ -51,15 +51,14 @@ export const Navigation = () => {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-6 lg:px-12 h-20">
-        <Link
-          to="/"
-          className="flex items-center gap-3 text-2xl font-serif font-bold text-foreground"
-        >
-          <span className="relative h-12 w-12 overflow-hidden rounded-full border border-primary/30 bg-white/70 shadow-sm">
-            <img src={logo} alt="Rable Bakes logo" className="h-full w-full object-cover" loading="lazy" />
-          </span>
-          <span className="transition-colors duration-300">
-            Rable <span className="gradient-text">Bakes</span>
+        <Link to="/" className="flex items-center" aria-label="Rable Bakes home">
+          <span className="relative h-14 w-40 overflow-hidden rounded-full border border-primary/30 bg-white/80 shadow-sm">
+            <img
+              src={logo}
+              alt="Rable Bakes logo"
+              className="h-full w-full object-contain"
+              loading="lazy"
+            />
           </span>
         </Link>
 
