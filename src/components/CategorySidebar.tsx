@@ -1,5 +1,11 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
+interface CategorySidebarProps {
+  onSelectCategory?: (categoryId: string) => void;
+  activeCategory?: string;
+  includeAllOption?: boolean;
+}
+
 const categories = [
   { id: "wedding", label: "Wedding Cakes" },
   { id: "birthday", label: "Birthday Cakes" },
@@ -13,10 +19,19 @@ const categories = [
   { id: "custom", label: "Custom Cakes" },
 ];
 
-export const CategorySidebar = () => {
+export const CategorySidebar = ({ onSelectCategory, activeCategory, includeAllOption }: CategorySidebarProps) => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
 
+  const sidebarCategories = includeAllOption
+    ? [{ id: "all", label: "All Cakes" }, ...categories]
+    : categories;
+
   const handleClick = (categoryId: string) => {
+    if (onSelectCategory) {
+      onSelectCategory(categoryId);
+      return;
+    }
+
     const el = document.getElementById(`category-${categoryId}`);
     if (el) {
       el.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -37,14 +52,22 @@ export const CategorySidebar = () => {
         <h2 className="text-xl font-semibold text-foreground">Categories</h2>
       </div>
       <nav className="space-y-1">
-        {categories.map((cat) => (
+        {sidebarCategories.map((cat) => (
           <button
             key={cat.id}
             onClick={() => handleClick(cat.id)}
-            className="w-full text-left text-sm px-3 py-2 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors group"
+            className={`w-full text-left text-sm px-3 py-2 rounded-lg transition-colors group ${
+              activeCategory === cat.id
+                ? "bg-primary/10 text-primary"
+                : "hover:bg-primary/10 hover:text-primary"
+            }`}
           >
             <span className="inline-flex items-center gap-2">
-              <span className="h-1 w-1 rounded-full bg-primary/40 group-hover:bg-primary" />
+              <span
+                className={`h-1 w-1 rounded-full ${
+                  activeCategory === cat.id ? "bg-primary" : "bg-primary/40 group-hover:bg-primary"
+                }`}
+              />
               <span>{cat.label}</span>
             </span>
           </button>
@@ -53,3 +76,4 @@ export const CategorySidebar = () => {
     </aside>
   );
 };
+
