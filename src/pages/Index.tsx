@@ -8,6 +8,7 @@ import { Testimonials } from "@/components/Testimonials";
 import { BakingClassesPreview } from "@/components/BakingClassesPreview";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
+import { LoyaltySpotlight } from "@/components/LoyaltySpotlight";
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
       <CategoryGrid />
       <CustomerFavorites />
       <OrderProcess />
+      <LoyaltySpotlight />
       <Testimonials />
       <BakingClassesPreview />
       <CTASection />

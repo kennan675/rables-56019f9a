@@ -8,13 +8,14 @@ import Index from "./pages/Index";
 import Shop from "./pages/Shop";
 import ProductDetail from "./pages/ProductDetail";
 import CustomOrders from "./pages/CustomOrders";
+import CustomCake from "./pages/CustomCake";
 import BakingClasses from "./pages/BakingClasses";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import Auth from "./pages/Auth";
-import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 import { Cakes, CakesByCategory } from "./pages/Cakes";
+import { LiveChat } from "@/components/LiveChat";
 
 const queryClient = new QueryClient();
 

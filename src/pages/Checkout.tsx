@@ -12,6 +12,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { MessageCircle } from "lucide-react";
 import { generateCartWhatsAppLink } from "@/utils/whatsapp";
 import { toast } from "@/hooks/use-toast";
+import { recordLoyaltyProgress } from "@/integrations/supabase/loyalty";
 
 const Checkout = () => {
   const { cart, cartTotal, clearCart } = useCart();
@@ -36,7 +37,7 @@ const Checkout = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Validation
@@ -61,14 +62,23 @@ const Checkout = () => {
     // Generate WhatsApp link with order details
     const whatsappLink = generateCartWhatsAppLink(cart);
     window.open(whatsappLink, '_blank');
-    
+
+    // fire and forget loyalty recording
+    recordLoyaltyProgress({
+      email: formData.email,
+      name: formData.name,
+      orderTotal: cartTotal,
+    }).catch((error) => {
+      console.error("Failed to record loyalty progress", error);
+    });
+
     // Clear cart and show success message
     clearCart();
     toast({
       title: "Order Sent!",
       description: "Your order has been sent via WhatsApp. We'll confirm shortly!",
     });
-    
+
     // Redirect to home after a short delay
     setTimeout(() => {
       navigate('/');
