@@ -1,20 +1,30 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { MessageCircle, Palette, Truck, CheckCircle2 } from "lucide-react";
 
 const steps = [
   {
-    title: "Share the details",
-    description:
-      "Tell us the date, location, servings and theme for your cake via WhatsApp or the custom order form.",
+    icon: MessageCircle,
+    title: "Share Your Vision",
+    description: "Tell us about your event, theme, flavors, and any special requests via WhatsApp or our order form.",
+    color: "bg-primary/10 text-primary",
   },
   {
-    title: "Confirm design & quote",
-    description:
-      "We&apos;ll suggest designs, flavours and pricing, then lock in your booking with a small deposit.",
+    icon: Palette,
+    title: "Design & Quote",
+    description: "We'll create a custom design and send you a quote. Lock in your booking with a small deposit.",
+    color: "bg-gold/10 text-gold",
   },
   {
-    title: "We bake & deliver",
-    description:
-      "Our team bakes, decorates and coordinates pick-up or delivery in Nairobi & Eldoret.",
+    icon: Truck,
+    title: "Fresh Bake & Deliver",
+    description: "Your cake is baked fresh the morning of your event and delivered safely to your location.",
+    color: "bg-coral/10 text-coral",
+  },
+  {
+    icon: CheckCircle2,
+    title: "Celebrate!",
+    description: "Enjoy your beautiful, delicious cake and make memories that last a lifetime.",
+    color: "bg-primary/10 text-primary",
   },
 ];
 
@@ -22,37 +32,52 @@ export const OrderProcess = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section className="py-16 bg-background" aria-label="How to order">
+    <section className="py-20 bg-background" aria-label="How to order">
       <div className="container mx-auto px-6 lg:px-12">
         <div
           ref={ref}
-          className={`mb-10 text-center transition-all duration-1000 ${
+          className={`mb-12 text-center transition-all duration-1000 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-2">
-            Simple order process
+          <p className="text-sm uppercase tracking-[0.3em] text-primary mb-3">
+            Simple Process
           </p>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold">
-            From idea to cake in <span className="gradient-text">3 steps</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+            From Idea to Cake in 4 Easy Steps
           </h2>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
-          {steps.map((step, index) => (
-            <article
-              key={step.title}
-              className="relative rounded-2xl border border-border bg-card/80 p-6 shadow-sm"
-            >
-              <div className="mb-4 flex items-center justify-between">
-                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-xs font-semibold text-primary">
-                  0{index + 1}
-                </span>
-              </div>
-              <h3 className="mb-2 text-base md:text-lg font-semibold">{step.title}</h3>
-              <p className="text-sm text-muted-foreground">{step.description}</p>
-            </article>
-          ))}
+        <div className="relative">
+          {/* Connection Line */}
+          <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-border hidden lg:block -translate-y-1/2" />
+          
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            {steps.map((step, index) => (
+              <article
+                key={step.title}
+                className={`relative text-center transition-all duration-700 ${
+                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+                }`}
+                style={{ transitionDelay: `${index * 150}ms` }}
+              >
+                {/* Step Number */}
+                <div className="relative mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-card border-4 border-background shadow-lg z-10">
+                  <div className={`flex h-14 w-14 items-center justify-center rounded-full ${step.color}`}>
+                    <step.icon className="h-6 w-6" />
+                  </div>
+                  <span className="absolute -top-2 -right-2 flex h-7 w-7 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
+                    {index + 1}
+                  </span>
+                </div>
+                
+                <h3 className="mb-3 text-xl font-semibold">{step.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {step.description}
+                </p>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>
