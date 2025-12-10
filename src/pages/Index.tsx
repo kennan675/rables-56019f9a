@@ -1,16 +1,12 @@
 import { Navigation } from "@/components/Navigation";
 import { TrustStrip } from "@/components/TrustStrip";
 import { Hero } from "@/components/Hero";
-import { FeaturedCakes } from "@/components/FeaturedCakes";
-import { PremiumRails } from "@/components/PremiumRails";
-import { ShopCakesCTA } from "@/components/ShopCakesCTA";
-import { MenuPricing } from "@/components/MenuPricing";
-import { CustomCakesHighlight } from "@/components/CustomCakesHighlight";
+import { CategoryGrid } from "@/components/CategoryGrid";
+import { CustomerFavorites } from "@/components/CustomerFavorites";
 import { OrderProcess } from "@/components/OrderProcess";
-import { ReviewsAndClasses } from "@/components/ReviewsAndClasses";
-import { StoryHighlights } from "@/components/StoryHighlights";
-import { About } from "@/components/About";
-import { Contact } from "@/components/Contact";
+import { Testimonials } from "@/components/Testimonials";
+import { BakingClassesPreview } from "@/components/BakingClassesPreview";
+import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
@@ -19,16 +15,12 @@ const Index = () => {
       <TrustStrip />
       <Navigation />
       <Hero />
-      <PremiumRails />
-      <ShopCakesCTA />
-      <FeaturedCakes />
-      <MenuPricing />
-      <CustomCakesHighlight />
+      <CategoryGrid />
+      <CustomerFavorites />
       <OrderProcess />
-      <ReviewsAndClasses />
-      <StoryHighlights />
-      <About />
-      <Contact />
+      <Testimonials />
+      <BakingClassesPreview />
+      <CTASection />
       <Footer />
     </main>
   );
