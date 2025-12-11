@@ -14,7 +14,7 @@ export const Footer = () => {
               <h3 className="text-2xl font-bold font-serif">Rable Bakes</h3>
             </div>
             <p className="text-cream/80">
-              Crafting sweet memories since 2015
+              Crafting sweet memories, one cake at a time
             </p>
           </div>
           
@@ -55,7 +55,7 @@ export const Footer = () => {
         </div>
         
         <div className="mt-12 border-t border-cream/10 pt-8 text-center text-cream/60 text-sm">
-          <p>&copy; 2024 Rables Bakes. All rights reserved.</p>
+          <p>&copy; 2025 Rable Bakes. All rights reserved.</p>
         </div>
       </div>
     </footer>
