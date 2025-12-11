@@ -1,6 +1,11 @@
 import { Sparkles, Star, Trophy } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { LOYALTY_TIERS } from "@/integrations/supabase/loyalty";
+
+const LOYALTY_TIERS = [
+  { tier: "Gold Member", minOrders: 10, discount: 15, headline: "Our most valued customers enjoy exclusive perks" },
+  { tier: "Silver Member", minOrders: 5, discount: 10, headline: "Regular sweet-tooths get rewarded" },
+  { tier: "Bronze Member", minOrders: 2, discount: 5, headline: "Start your sweet journey with us" },
+];
 
 export const LoyaltySpotlight = () => {
   return (
