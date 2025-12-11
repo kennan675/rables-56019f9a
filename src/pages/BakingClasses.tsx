@@ -6,65 +6,35 @@ import { Badge } from "@/components/ui/badge";
 import { Clock, Users, Calendar, MessageCircle } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
-const classes = [
-  {
-    id: "BC001",
-    title: "Cupcake Decorating Basics",
-    description: "Learn the fundamentals of cupcake decoration, including piping techniques and frosting styles",
-    date: "Every Saturday",
-    time: "10:00 AM - 1:00 PM",
-    duration: "3 hours",
-    price: 3500,
-    seats: 8,
-    level: "Beginner",
-    includes: ["All ingredients", "Recipe booklet", "Take-home cupcakes", "Piping bag kit"]
-  },
-  {
-    id: "BC002",
-    title: "Wedding Cake Masterclass",
-    description: "Master the art of creating stunning multi-tiered wedding cakes with professional techniques",
-    date: "2nd Sunday of each month",
-    time: "9:00 AM - 4:00 PM",
-    duration: "7 hours",
-    price: 8500,
-    seats: 6,
-    level: "Advanced",
-    includes: ["All ingredients", "Professional tips", "Certificate", "Lunch included"]
-  },
-  {
-    id: "BC003",
-    title: "Cake Baking Fundamentals",
-    description: "Perfect your cake baking skills - from mixing to baking to achieving the perfect texture",
-    date: "Every Friday",
-    time: "2:00 PM - 5:00 PM",
-    duration: "3 hours",
-    price: 4000,
-    seats: 10,
-    level: "Beginner",
-    includes: ["All ingredients", "Recipe cards", "Take-home cake", "Baking tips sheet"]
-  },
-  {
-    id: "BC004",
-    title: "Sugar Flower Artistry",
-    description: "Create beautiful edible sugar flowers for cake decoration and special occasions",
-    date: "3rd Saturday of each month",
-    time: "10:00 AM - 3:00 PM",
-    duration: "5 hours",
-    price: 6000,
-    seats: 6,
-    level: "Intermediate",
-    includes: ["Sugar paste", "Tools kit", "Flower samples", "Techniques guide"]
-  }
-];
+const bakingClass = {
+  id: "BC001",
+  title: "Complete Cake Baking & Decorating Class",
+  description: "Master the art of baking and decorating beautiful cakes. From mixing techniques to stunning finishes, learn everything you need to create professional-quality cakes at home.",
+  date: "Every Saturday",
+  time: "9:00 AM - 3:00 PM",
+  duration: "6 hours",
+  price: 5000,
+  seats: 8,
+  level: "All Levels",
+  includes: [
+    "All ingredients and materials provided",
+    "Recipe booklet to take home",
+    "Piping bag and tips kit",
+    "Take home what you bake",
+    "Certificate of completion",
+    "Light refreshments included"
+  ]
+};
 
 const BakingClasses = () => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
+  const { ref: cardRef, isVisible: cardVisible } = useScrollAnimation({ threshold: 0.2 });
   
   const BUSINESS_PHONE = "254704209055";
   
-  const handleEnrollClick = (classItem: typeof classes[0]) => {
+  const handleEnrollClick = () => {
     const message = encodeURIComponent(
-      `Hi Rable Bakes! I'd like to enroll in: ${classItem.title} (${classItem.id})\n\nDate: ${classItem.date}\nTime: ${classItem.time}\nPrice: KSh ${classItem.price}\n\nMy details:\nName: ____\nPhone: ____\nEmail: ____\n\nPlease confirm my enrollment. Thanks!`
+      `Hi Rable Bakes! I'd like to enroll in: ${bakingClass.title} (${bakingClass.id})\n\nDate: ${bakingClass.date}\nTime: ${bakingClass.time}\nPrice: KSh ${bakingClass.price}\n\nMy details:\nName: ____\nPhone: ____\nEmail: ____\n\nPlease confirm my enrollment. Thanks!`
     );
     window.open(`https://wa.me/${BUSINESS_PHONE}?text=${message}`, '_blank');
   };
@@ -89,76 +59,72 @@ const BakingClasses = () => {
             </p>
           </div>
 
-          {/* Classes Grid */}
-          <div className="grid gap-8 md:grid-cols-2">
-            {classes.map((classItem, index) => {
-              const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
-              
-              return (
-                <div
-                  key={classItem.id}
-                  ref={ref}
-                  className={`transition-all duration-700 ${
-                    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
-                  }`}
-                  style={{ transitionDelay: `${index * 150}ms` }}
-                >
-                  <Card className="hover-lift border-none shadow-lg h-full flex flex-col">
-                    <CardHeader>
-                      <div className="flex justify-between items-start mb-2">
-                        <Badge variant="secondary">{classItem.level}</Badge>
-                        <Badge className="bg-primary">
-                          <Users className="h-3 w-3 mr-1" />
-                          {classItem.seats} seats
-                        </Badge>
+          {/* Single Class Card */}
+          <div className="max-w-2xl mx-auto">
+            <div
+              ref={cardRef}
+              className={`transition-all duration-700 ${
+                cardVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+              }`}
+            >
+              <Card className="hover-lift border-none shadow-lg">
+                <CardHeader className="text-center pb-4">
+                  <div className="flex justify-center gap-3 mb-4">
+                    <Badge variant="secondary">{bakingClass.level}</Badge>
+                    <Badge className="bg-primary">
+                      <Users className="h-3 w-3 mr-1" />
+                      {bakingClass.seats} seats max
+                    </Badge>
+                  </div>
+                  <CardTitle className="text-3xl">{bakingClass.title}</CardTitle>
+                  <CardDescription className="text-base mt-2">
+                    {bakingClass.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4 mb-8">
+                    <div className="flex items-center justify-center gap-6 text-muted-foreground">
+                      <div className="flex items-center gap-2">
+                        <Calendar className="h-5 w-5 text-primary" />
+                        <span>{bakingClass.date}</span>
                       </div>
-                      <CardTitle className="text-2xl">{classItem.title}</CardTitle>
-                      <CardDescription className="text-base">
-                        {classItem.description}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent className="flex-1 flex flex-col justify-between">
-                      <div className="space-y-4 mb-6">
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <Calendar className="h-4 w-4" />
-                          {classItem.date}
-                        </div>
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <Clock className="h-4 w-4" />
-                          {classItem.time} ({classItem.duration})
-                        </div>
-                        
-                        <div>
-                          <h4 className="font-semibold mb-2">What's Included:</h4>
-                          <ul className="text-sm text-muted-foreground space-y-1">
-                            {classItem.includes.map((item, i) => (
-                              <li key={i}>✓ {item}</li>
-                            ))}
-                          </ul>
-                        </div>
+                      <div className="flex items-center gap-2">
+                        <Clock className="h-5 w-5 text-primary" />
+                        <span>{bakingClass.time}</span>
                       </div>
+                    </div>
+                    
+                    <div className="bg-muted/50 rounded-xl p-6">
+                      <h4 className="font-semibold mb-4 text-center">What's Included:</h4>
+                      <ul className="grid md:grid-cols-2 gap-2 text-sm text-muted-foreground">
+                        {bakingClass.includes.map((item, i) => (
+                          <li key={i} className="flex items-center gap-2">
+                            <span className="text-primary">✓</span> {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
 
-                      <div className="space-y-3">
-                        <div className="flex items-baseline justify-between">
-                          <span className="text-3xl font-bold text-primary">
-                            KSh {classItem.price.toLocaleString()}
-                          </span>
-                          <span className="text-sm text-muted-foreground">per person</span>
-                        </div>
-                        <Button 
-                          className="w-full" 
-                          size="lg"
-                          onClick={() => handleEnrollClick(classItem)}
-                        >
-                          <MessageCircle className="mr-2 h-5 w-5" />
-                          Enroll via WhatsApp
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              );
-            })}
+                  <div className="text-center space-y-4">
+                    <div>
+                      <span className="text-4xl font-bold text-primary">
+                        KSh {bakingClass.price.toLocaleString()}
+                      </span>
+                      <span className="text-muted-foreground ml-2">per person</span>
+                    </div>
+                    <Button 
+                      className="w-full max-w-md" 
+                      size="lg"
+                      onClick={handleEnrollClick}
+                    >
+                      <MessageCircle className="mr-2 h-5 w-5" />
+                      Enroll via WhatsApp
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
 
           {/* Info Section */}
