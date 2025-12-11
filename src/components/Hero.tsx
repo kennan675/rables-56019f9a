@@ -40,7 +40,7 @@ export const Hero = () => {
             </h1>
             
             <p className="mb-8 text-lg text-primary-foreground/80 md:text-xl max-w-lg">
-              Premium custom cakes for birthdays, weddings, and every celebration in between. Handcrafted with love since 2018.
+              Premium custom cakes for birthdays, weddings, and every celebration in between. Handcrafted with love.
             </p>
             
             <div className="flex flex-col gap-4 sm:flex-row">
