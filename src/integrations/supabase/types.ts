@@ -220,45 +220,6 @@ export type Database = {
         }
         Relationships: []
       }
-      customer_loyalty: {
-        Row: {
-          created_at: string
-          customer_email: string
-          customer_name: string | null
-          discount_percentage: number
-          id: string
-          last_order_at: string | null
-          loyalty_tier: string
-          total_orders: number
-          total_spent: number
-          updated_at: string
-        }
-        Insert: {
-          created_at?: string
-          customer_email: string
-          customer_name?: string | null
-          discount_percentage?: number
-          id?: string
-          last_order_at?: string | null
-          loyalty_tier?: string
-          total_orders?: number
-          total_spent?: number
-          updated_at?: string
-        }
-        Update: {
-          created_at?: string
-          customer_email?: string
-          customer_name?: string | null
-          discount_percentage?: number
-          id?: string
-          last_order_at?: string | null
-          loyalty_tier?: string
-          total_orders?: number
-          total_spent?: number
-          updated_at?: string
-        }
-        Relationships: []
-      }
       product_variants: {
         Row: {
           created_at: string
