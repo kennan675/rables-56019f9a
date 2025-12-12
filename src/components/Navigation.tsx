@@ -138,7 +138,7 @@ export const Navigation = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="lg:hidden fixed inset-0 top-20 bg-white border-t border-border/70 z-40">
+        <div className="fixed inset-x-0 top-[5rem] z-[60] h-[calc(100vh-5rem)] overflow-y-auto border-t border-border/70 bg-white shadow-lg lg:hidden">
           <nav className="flex flex-col gap-6 p-8">
             {navLinks.map((link) => (
               <Link

@@ -8,32 +8,32 @@ export const CTASection = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="py-24 bg-gradient-to-br from-primary via-rose-pink to-coral relative overflow-hidden">
+    <section className="relative overflow-hidden py-24 bg-gradient-to-br from-[#2b1a1c] via-[#3f1f28] to-[#5a2633]">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 left-10 w-40 h-40 rounded-full border-2 border-primary-foreground" />
-        <div className="absolute bottom-10 right-10 w-60 h-60 rounded-full border-2 border-primary-foreground" />
-        <div className="absolute top-1/2 left-1/3 w-20 h-20 rounded-full border-2 border-primary-foreground" />
+      <div className="absolute inset-0 opacity-40">
+        <div className="absolute -left-16 top-0 h-64 w-64 rounded-full bg-gradient-to-br from-white/10 to-transparent blur-3xl" />
+        <div className="absolute -right-10 bottom-0 h-72 w-72 rounded-full bg-gradient-to-tr from-[#d86b6b]/40 via-transparent to-transparent blur-3xl" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle at top,_rgba(255,255,255,0.08),_transparent_65%)]" />
       </div>
 
-      <div className="container mx-auto px-6 lg:px-12 relative z-10">
+      <div className="relative z-10 mx-auto container px-6 lg:px-12">
         <div
           ref={ref}
           className={`max-w-3xl mx-auto text-center transition-all duration-1000 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-6">
+          <h2 className="mb-6 text-3xl font-bold text-cream md:text-4xl lg:text-5xl">
             Ready to Make Your Celebration Sweet?
           </h2>
-          <p className="text-lg text-primary-foreground/80 mb-10 max-w-xl mx-auto">
+          <p className="mx-auto mb-10 max-w-xl text-lg text-cream/80">
             Whether you're planning a wedding, birthday, or just want to surprise someone special, 
             we're here to create the perfect cake for your moment.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
-              className="bg-primary-foreground text-foreground hover:bg-primary-foreground/90 rounded-full px-8 py-6 text-base"
+              className="rounded-full bg-cream px-8 py-6 text-base font-semibold text-[#3f1f28] shadow-lg shadow-black/10 transition hover:bg-[#fbe8dc] hover:shadow-xl"
               onClick={() => navigate('/shop')}
             >
               Browse Our Cakes
@@ -42,7 +42,7 @@ export const CTASection = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-foreground rounded-full px-8 py-6 text-base bg-transparent"
+              className="rounded-full border-2 border-white/60 px-8 py-6 text-base text-cream transition hover:bg-white/10"
               onClick={() => window.open('https://wa.me/254704209055', '_blank')}
             >
               <MessageCircle className="mr-2 h-5 w-5" />

@@ -8,7 +8,7 @@ export const BakingClassesPreview = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="py-20 bg-background" aria-label="Baking classes">
+    <section className="py-20 bg-[#f7f0e9]" aria-label="Baking classes">
       <div className="container mx-auto px-6 lg:px-12">
         <div
           ref={ref}
@@ -33,13 +33,13 @@ export const BakingClassesPreview = () => {
 
           {/* Content */}
           <div>
-            <p className="text-sm uppercase tracking-[0.3em] text-primary mb-3">
+            <p className="text-sm uppercase tracking-[0.3em] text-[#a9504f] mb-3">
               Learn From The Best
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-[#2d1c18]">
               Baking Classes in Nairobi & Eldoret
             </h2>
-            <p className="text-muted-foreground mb-6 leading-relaxed">
+            <p className="mb-6 leading-relaxed text-[#5e433b]">
               Join our intimate, hands-on baking classes and learn the art of creating beautiful, 
               delicious cakes. Perfect for beginners and home bakers who want to level up their skills.
             </p>
@@ -55,7 +55,7 @@ export const BakingClassesPreview = () => {
                   <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary text-sm">
                     ✓
                   </span>
-                  <span className="text-muted-foreground">{item}</span>
+                  <span className="text-[#5e433b]">{item}</span>
                 </li>
               ))}
             </ul>
