@@ -7,7 +7,6 @@ interface CategorySidebarProps {
 }
 
 const categories = [
-  { id: "wedding", label: "Wedding Cakes" },
   { id: "birthday", label: "Birthday Cakes" },
   { id: "kids", label: "Kids Cakes" },
   { id: "anniversary", label: "Anniversary Cakes" },

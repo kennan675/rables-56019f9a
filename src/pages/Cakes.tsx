@@ -12,7 +12,6 @@ import { CategorySidebar } from "@/components/CategorySidebar";
 const categoryLabels: Record<string, string> = {
   all: "All Cakes",
   birthday: "Birthday Cakes",
-  wedding: "Wedding Cakes",
   celebration: "Celebration Cakes",
   cupcakes: "Cupcakes",
   "special-design": "Special Design Cakes",
