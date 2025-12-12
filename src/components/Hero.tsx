@@ -36,7 +36,7 @@ export const Hero = () => {
 
             <h1 className="mb-6 text-4xl font-bold leading-[1.1] text-primary-foreground sm:text-5xl md:text-6xl lg:text-7xl">
               Cakes That Taste Like
-              <span className="block mt-2 text-primary">Memories</span>
+              <span className="mt-2 block text-[#ded9d4] drop-shadow-[0_6px_18px_rgba(0,0,0,0.35)]">Memories</span>
             </h1>
             
             <p className="mb-8 text-lg text-primary-foreground/80 md:text-xl max-w-lg">
