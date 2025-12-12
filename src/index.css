@@ -37,12 +37,12 @@
     --radius: 0.75rem;
 
     /* Custom tokens - Grey & Cream palette inspired by Rable Bakes logo */
-    --cream: 35 25% 90%;
-    --warm-grey: 0 0% 45%;
-    --charcoal: 0 0% 30%;
-    --taupe: 30 10% 65%;
-    --soft-cream: 35 20% 95%;
-    --stone: 30 5% 55%;
+    --cream: 35 25% 92%;
+    --warm-grey: 0 0% 40%;
+    --charcoal: 0 0% 25%;
+    --taupe: 30 10% 60%;
+    --soft-cream: 35 20% 96%;
+    --stone: 30 5% 50%;
     
     /* Gradients */
     --gradient-hero: linear-gradient(135deg, hsl(0 0% 45%) 0%, hsl(0 0% 35%) 100%);
