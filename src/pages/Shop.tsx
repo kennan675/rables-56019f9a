@@ -9,14 +9,11 @@ import { Badge } from "@/components/ui/badge";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const categories = [
-  { id: "all", label: "All Cakes" },
-  { id: "birthday", label: "Birthday" },
-  { id: "wedding", label: "Wedding" },
-  { id: "celebration", label: "Celebration" },
+  { id: "all", label: "All Products" },
+  { id: "whole-cakes", label: "Whole Cakes" },
+  { id: "bento", label: "Bento Packages" },
   { id: "cupcakes", label: "Cupcakes" },
-  { id: "special-design", label: "Special Design" },
-  { id: "mini-cakes", label: "Mini Cakes" },
-  { id: "seasonal", label: "Seasonal" },
+  { id: "donuts", label: "Donuts" },
 ];
 
 const Shop = () => {

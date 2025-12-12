@@ -1,30 +1,36 @@
 import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import weddingCake from "@/assets/wedding-cake.jpg";
 import birthdayCake from "@/assets/birthday-cake.jpg";
 import cupcakes from "@/assets/cupcakes.jpg";
 
 const categories = [
   {
-    id: "birthday",
-    name: "Birthday Cakes",
+    id: "whole-cakes",
+    name: "Whole Cakes",
     image: birthdayCake,
-    description: "Make every birthday unforgettable",
-    color: "from-rose-pink/80",
+    description: "Delicious cakes in various flavors",
+    color: "from-primary/80",
   },
   {
-    id: "wedding",
-    name: "Wedding Cakes",
-    image: weddingCake,
-    description: "Elegant tiers for your big day",
-    color: "from-gold/80",
+    id: "bento",
+    name: "Bento Packages",
+    image: cupcakes,
+    description: "Mini cakes with cupcakes combo",
+    color: "from-secondary/80",
   },
   {
     id: "cupcakes",
-    name: "Cupcakes & Treats",
+    name: "Cupcakes",
     image: cupcakes,
     description: "Perfect for any gathering",
-    color: "from-coral/80",
+    color: "from-muted/80",
+  },
+  {
+    id: "donuts",
+    name: "Donuts",
+    image: cupcakes,
+    description: "Glazed & assorted donuts",
+    color: "from-accent/80",
   },
 ];
 
@@ -48,12 +54,12 @@ export const CategoryGrid = () => {
           </h2>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {categories.map((category, index) => (
             <Link
               key={category.id}
               to={`/shop?category=${category.id}`}
-              className={`group relative h-80 overflow-hidden rounded-3xl transition-all duration-700 ${
+              className={`group relative h-72 overflow-hidden rounded-3xl transition-all duration-700 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
@@ -65,7 +71,7 @@ export const CategoryGrid = () => {
               />
               <div className={`absolute inset-0 bg-gradient-to-t ${category.color} via-foreground/30 to-transparent`} />
               <div className="absolute inset-0 flex flex-col justify-end p-6 text-primary-foreground">
-                <h3 className="text-2xl font-bold mb-2">{category.name}</h3>
+                <h3 className="text-xl font-bold mb-2">{category.name}</h3>
                 <p className="text-sm text-primary-foreground/80">{category.description}</p>
                 <div className="mt-4 flex items-center gap-2 opacity-0 translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
                   <span className="text-sm font-medium">Shop Now</span>
