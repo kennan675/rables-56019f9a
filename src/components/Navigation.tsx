@@ -42,7 +42,7 @@ export const Navigation = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-500 ${
+      className={`sticky top-0 z-50 w-full border-b transition-all duration-500 ${
         isScrolled
           ? 'bg-white backdrop-blur-md border-border/70 shadow-sm'
           : 'bg-white backdrop-blur-md border-transparent'
