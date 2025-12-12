@@ -17,6 +17,7 @@ import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 import { Cakes, CakesByCategory } from "./pages/Cakes";
 import { LiveChat } from "@/components/LiveChat";
+import PageLoader from "@/components/PageLoader";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <CartProvider>
       <TooltipProvider>
+        <PageLoader />
         <Toaster />
         <Sonner />
         <LiveChat />
