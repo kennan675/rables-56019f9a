@@ -44,36 +44,36 @@ export const MenuPricing = () => {
                   {[
                     {
                       flavour: "Vanilla / Strawberry / Blueberry",
-                      one: 2300,
-                      oneHalf: 3400,
-                      two: 4500,
+                      one: "2,300",
+                      oneHalf: "3,400",
+                      two: "4,500",
                     },
                     {
                       flavour: "Lemon / Orange",
-                      one: 2400,
-                      oneHalf: 3500,
-                      two: 4600,
+                      one: "2,400",
+                      oneHalf: "3,500",
+                      two: "4,600",
                     },
                     {
                       flavour: "Chocolate / Chocolate Mint / Sponge / Bubblegum / Caramel",
-                      one: 2500,
-                      oneHalf: 3700,
-                      two: 4800,
+                      one: "2,500",
+                      oneHalf: "3,700",
+                      two: "4,800",
                     },
                     {
-                      flavour: "Pina colada / Red velvet / Lemon poppy / Lemon blueberry / Oreo",
-                      one: 2700,
-                      oneHalf: 4000,
-                      two: 5100,
+                      flavour: "Pinacolada / Red Velvet / Lemon Poppy / Lemon Blueberry / Oreo",
+                      one: "2,700",
+                      oneHalf: "4,000",
+                      two: "5,100",
                     },
                   ].map((row) => (
                     <tr key={row.flavour} className="border-t border-border/60">
                       <td className="px-4 py-3 align-top text-xs md:text-sm text-foreground">
                         {row.flavour}
                       </td>
-                      <td className="px-4 py-3 text-muted-foreground">{row.one.toLocaleString()}</td>
-                      <td className="px-4 py-3 text-muted-foreground">{row.oneHalf.toLocaleString()}</td>
-                      <td className="px-4 py-3 text-muted-foreground">{row.two.toLocaleString()}</td>
+                      <td className="px-4 py-3 text-muted-foreground">{row.one}</td>
+                      <td className="px-4 py-3 text-muted-foreground">{row.oneHalf}</td>
+                      <td className="px-4 py-3 text-muted-foreground">{row.two}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -88,10 +88,10 @@ export const MenuPricing = () => {
                 Bento packages
               </h3>
               <ul className="space-y-1 text-xs md:text-sm">
-                <li>Bento cake + 2 cupcakes: approx. 1,200 - 1,400</li>
-                <li>Bento cake + 5 cupcakes: approx. 1,500 - 1,700</li>
+                <li>Bento cake + 2 cupcakes: KSh 1,200</li>
+                <li>Bento cake + 5 cupcakes: KSh 1,500</li>
                 <li className="mt-1 text-[0.7rem] text-muted-foreground">
-                  Final price depends on flavour and decoration.
+                  Price depends on flavour and decoration.
                 </li>
               </ul>
             </div>

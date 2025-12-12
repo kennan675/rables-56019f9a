@@ -1,7 +1,7 @@
 export interface Product {
   id: string;
   name: string;
-  category: 'birthday' | 'wedding' | 'celebration' | 'cupcakes' | 'special-design' | 'mini-cakes' | 'seasonal';
+  category: 'whole-cakes' | 'bento' | 'cupcakes' | 'donuts' | 'birthday';
   price: number;
   priceVariants?: {
     size: string;
