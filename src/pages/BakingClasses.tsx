@@ -8,21 +8,45 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const bakingClass = {
   id: "BC001",
-  title: "Complete Cake Baking & Decorating Class",
-  description: "Master the art of baking and decorating beautiful cakes. From mixing techniques to stunning finishes, learn everything you need to create professional-quality cakes at home.",
-  date: "Every Saturday",
+  title: "Professional Cake Baking & Decorating Masterclass",
+  subtitle: "EST. 2025 - RABLEBAKES BAKERY",
+  description: "Master the complete art of professional cake baking and decorating. Learn essential techniques from basic recipes to advanced decorating methods in this comprehensive masterclass.",
+  date: "Weekend Classes Available",
   time: "9:00 AM - 3:00 PM",
   duration: "6 hours",
-  price: 5000,
-  seats: 8,
-  level: "All Levels",
+  price: 15000,
+  seats: 10,
+  level: "All Levels Welcome",
+  courseOutline: [
+    "Lemon Cake - Perfect citrus techniques",
+    "Chocolate Cake - Rich moist methods", 
+    "Blueberry Cake - Fruit incorporation",
+    "Cake fillings (Passion, Lemon, Blueberry & more)",
+    "Chocolate cage creation & assembly",
+    "Cake dowelling and stacking techniques",
+    "Professional piping techniques",
+    "Buttercream & whipped cream preparation",
+    "Ganache techniques & applications",
+    "Additional cake recipes & variations",
+    "Cake costing for business"
+  ],
+  locations: [
+    "Nairobi: Uhuru Phase 4 or Juja",
+    "Eldoret: Unga Estate (West)"
+  ],
+  contact: {
+    phone1: "+254704209055",
+    phone2: "+254729063060",
+    instagram: "@rablebakes"
+  },
   includes: [
     "All ingredients and materials provided",
-    "Recipe booklet to take home",
-    "Piping bag and tips kit",
-    "Take home what you bake",
+    "Professional recipe booklet",
+    "Decorating tools kit to take home",
+    "Take home your decorated cake",
     "Certificate of completion",
-    "Light refreshments included"
+    "Light refreshments included",
+    "Business startup guide"
   ]
 };
 
@@ -69,6 +93,11 @@ const BakingClasses = () => {
             >
               <Card className="hover-lift border-none shadow-lg">
                 <CardHeader className="text-center pb-4">
+                  <div className="mb-4">
+                    <p className="text-sm font-medium text-primary/80 uppercase tracking-wider">
+                      {bakingClass.subtitle}
+                    </p>
+                  </div>
                   <div className="flex justify-center gap-3 mb-4">
                     <Badge variant="secondary">{bakingClass.level}</Badge>
                     <Badge className="bg-primary">
@@ -95,21 +124,30 @@ const BakingClasses = () => {
                     </div>
                     
                     <div className="bg-muted/50 rounded-xl p-6">
-                      <h4 className="font-semibold mb-4 text-center">What's Included:</h4>
+                      <h4 className="font-semibold mb-4 text-center">Course Outline:</h4>
                       <ul className="grid md:grid-cols-2 gap-2 text-sm text-muted-foreground">
-                        {bakingClass.includes.map((item, i) => (
+                        {bakingClass.courseOutline.map((item, i) => (
                           <li key={i} className="flex items-center gap-2">
                             <span className="text-primary">✓</span> {item}
                           </li>
                         ))}
                       </ul>
                     </div>
+                    
+                    <div className="bg-primary/5 rounded-xl p-6">
+                      <h4 className="font-semibold mb-3 text-center">Location:</h4>
+                      <div className="space-y-1 text-sm text-muted-foreground text-center">
+                        {bakingClass.locations.map((location, i) => (
+                          <p key={i}>{location}</p>
+                        ))}
+                      </div>
+                    </div>
                   </div>
 
                   <div className="text-center space-y-4">
                     <div>
                       <span className="text-4xl font-bold text-primary">
-                        KSh {bakingClass.price.toLocaleString()}
+                        ONLY KSh 15,000
                       </span>
                       <span className="text-muted-foreground ml-2">per person</span>
                     </div>
@@ -131,14 +169,11 @@ const BakingClasses = () => {
           <div className="mt-16 text-center">
             <Card className="border-none shadow-xl bg-gradient-to-br from-primary/5 to-secondary/5 max-w-3xl mx-auto">
               <CardContent className="pt-8 pb-8">
-                <h2 className="text-2xl font-bold mb-4">Class Information</h2>
+                <h2 className="text-2xl font-bold mb-4">BOOK HERE</h2>
                 <div className="text-left space-y-3 text-muted-foreground">
-                  <p>• All classes are held at our bakery location in Sweet Town</p>
-                  <p>• Materials and ingredients are provided for all classes</p>
-                  <p>• Classes have limited seats - book early to secure your spot</p>
-                  <p>• Payment required to confirm enrollment (via M-Pesa or bank transfer)</p>
-                  <p>• Cancellation policy: Full refund if cancelled 48 hours before class</p>
-                  <p>• Contact us on WhatsApp for group bookings or private classes</p>
+                  <p> {bakingClass.contact.phone1}</p>
+                  <p> {bakingClass.contact.phone2}</p>
+                  <p>Instagram: {bakingClass.contact.instagram}</p>
                 </div>
               </CardContent>
             </Card>
