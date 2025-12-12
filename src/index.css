@@ -6,53 +6,53 @@
 
 @layer base {
   :root {
-    --background: 45 30% 97%;
-    --foreground: 20 20% 18%;
+    --background: 30 10% 97%;
+    --foreground: 0 0% 25%;
 
     --card: 0 0% 100%;
-    --card-foreground: 20 20% 18%;
+    --card-foreground: 0 0% 25%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 20 20% 18%;
+    --popover-foreground: 0 0% 25%;
 
-    --primary: 340 75% 55%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 0 0% 45%;
+    --primary-foreground: 30 20% 95%;
 
-    --secondary: 45 80% 92%;
-    --secondary-foreground: 20 20% 18%;
+    --secondary: 30 15% 92%;
+    --secondary-foreground: 0 0% 25%;
 
-    --muted: 45 20% 93%;
-    --muted-foreground: 20 10% 45%;
+    --muted: 30 10% 93%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 28 80% 55%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 35 25% 75%;
+    --accent-foreground: 0 0% 20%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 45 15% 88%;
-    --input: 45 15% 88%;
-    --ring: 340 75% 55%;
+    --border: 30 10% 85%;
+    --input: 30 10% 85%;
+    --ring: 0 0% 45%;
 
     --radius: 0.75rem;
 
-    /* Custom tokens */
-    --cream: 45 30% 97%;
-    --warm-brown: 20 30% 22%;
-    --rose-pink: 340 75% 55%;
-    --gold: 38 80% 50%;
-    --soft-pink: 340 60% 95%;
-    --coral: 15 80% 60%;
+    /* Custom tokens - Grey & Cream palette inspired by Rable Bakes logo */
+    --cream: 35 25% 90%;
+    --warm-grey: 0 0% 45%;
+    --charcoal: 0 0% 30%;
+    --taupe: 30 10% 65%;
+    --soft-cream: 35 20% 95%;
+    --stone: 30 5% 55%;
     
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(340 75% 55%) 0%, hsl(28 80% 55%) 100%);
-    --gradient-warm: linear-gradient(180deg, hsl(45 30% 97%) 0%, hsl(340 60% 95%) 100%);
-    --gradient-gold: linear-gradient(135deg, hsl(38 80% 50%) 0%, hsl(28 80% 55%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 45%) 0%, hsl(0 0% 35%) 100%);
+    --gradient-warm: linear-gradient(180deg, hsl(30 10% 97%) 0%, hsl(35 20% 95%) 100%);
+    --gradient-cream: linear-gradient(135deg, hsl(35 25% 90%) 0%, hsl(35 20% 85%) 100%);
     
     /* Shadows */
-    --shadow-soft: 0 4px 20px -4px hsl(340 75% 55% / 0.15);
-    --shadow-elevated: 0 20px 50px -15px hsl(20 20% 18% / 0.1);
-    --shadow-glow: 0 0 40px hsl(340 75% 55% / 0.2);
+    --shadow-soft: 0 4px 20px -4px hsl(0 0% 30% / 0.15);
+    --shadow-elevated: 0 20px 50px -15px hsl(0 0% 20% / 0.12);
+    --shadow-glow: 0 0 40px hsl(35 25% 75% / 0.3);
     
     /* Animations */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -60,33 +60,33 @@
   }
 
   .dark {
-    --background: 20 15% 8%;
-    --foreground: 45 20% 95%;
+    --background: 0 0% 10%;
+    --foreground: 35 15% 92%;
 
-    --card: 20 12% 12%;
-    --card-foreground: 45 20% 95%;
+    --card: 0 0% 14%;
+    --card-foreground: 35 15% 92%;
 
-    --popover: 20 12% 12%;
-    --popover-foreground: 45 20% 95%;
+    --popover: 0 0% 14%;
+    --popover-foreground: 35 15% 92%;
 
-    --primary: 340 70% 60%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 35 20% 75%;
+    --primary-foreground: 0 0% 15%;
 
-    --secondary: 28 50% 25%;
-    --secondary-foreground: 45 20% 95%;
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 35 15% 92%;
 
-    --muted: 20 10% 18%;
-    --muted-foreground: 45 15% 60%;
+    --muted: 0 0% 18%;
+    --muted-foreground: 30 10% 60%;
 
-    --accent: 28 70% 50%;
+    --accent: 35 25% 60%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62% 35%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 20 10% 22%;
-    --input: 20 10% 22%;
-    --ring: 340 70% 60%;
+    --border: 0 0% 22%;
+    --input: 0 0% 22%;
+    --ring: 35 20% 75%;
   }
 }
 
