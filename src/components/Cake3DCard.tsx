@@ -1,7 +1,5 @@
-import React, { useRef, useState } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { Image, useCursor } from '@react-three/drei';
-import * as THREE from 'three';
+import React, { useRef } from "react";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 interface Cake3DCardProps {
     image: string;
@@ -10,55 +8,81 @@ interface Cake3DCardProps {
     onClick?: () => void;
 }
 
-const Card = ({ image, name, price, onClick }: Cake3DCardProps) => {
-    const ref = useRef<THREE.Group>(null);
-    const [hovered, setHovered] = useState(false);
-    useCursor(hovered);
-
-    useFrame((state, delta) => {
-        if (ref.current) {
-            // Smooth tilt effect
-            const targetRotationY = hovered ? 0.2 : 0;
-            const targetRotationX = hovered ? -0.1 : 0;
-            const targetScale = hovered ? 1.05 : 1;
-
-            ref.current.rotation.y = THREE.MathUtils.lerp(ref.current.rotation.y, targetRotationY, delta * 5);
-            ref.current.rotation.x = THREE.MathUtils.lerp(ref.current.rotation.x, targetRotationX, delta * 5);
-            ref.current.scale.setScalar(THREE.MathUtils.lerp(ref.current.scale.x, targetScale, delta * 5));
-        }
-    });
-
-    return (
-        <group
-            ref={ref}
-            onClick={onClick}
-            onPointerOver={() => setHovered(true)}
-            onPointerOut={() => setHovered(false)}
-        >
-            <Image url={image} scale={[3, 4] as any} position={[0, 0, 0]} />
-            {/* Overlay Text - simpler to do in HTML overlay, but demonstrating 3D text possibility */}
-            {/* We will rely on an HTML overlay for accessibility and sharpness, keeping the canvas as the background visual */}
-        </group>
-    );
-};
-
-
 export const Cake3DCard = ({ image, name, price, onClick }: Cake3DCardProps) => {
+    const ref = useRef<HTMLDivElement>(null);
+
+    const x = useMotionValue(0);
+    const y = useMotionValue(0);
+
+    const mouseXSpring = useSpring(x);
+    const mouseYSpring = useSpring(y);
+
+    const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["17.5deg", "-17.5deg"]);
+    const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-17.5deg", "17.5deg"]);
+
+    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+        if (!ref.current) return;
+
+        const rect = ref.current.getBoundingClientRect();
+
+        const width = rect.width;
+        const height = rect.height;
+
+        const mouseX = e.clientX - rect.left;
+        const mouseY = e.clientY - rect.top;
+
+        const xPct = mouseX / width - 0.5;
+        const yPct = mouseY / height - 0.5;
+
+        x.set(xPct);
+        y.set(yPct);
+    };
+
+    const handleMouseLeave = () => {
+        x.set(0);
+        y.set(0);
+    };
+
     return (
-        <div className="relative w-full h-[400px] border rounded-xl overflow-hidden bg-secondary/20 shadow-sm hover:shadow-xl transition-all duration-300">
-            <div className="absolute inset-0">
-                <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
-                    <ambientLight intensity={0.5} />
-                    <pointLight position={[10, 10, 10]} />
-                    <Card image={image} name={name} price={price} onClick={onClick} />
-                </Canvas>
+        <motion.div
+            ref={ref}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            onClick={onClick}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            style={{
+                rotateY,
+                rotateX,
+                transformStyle: "preserve-3d",
+            }}
+            className="relative h-[400px] w-full rounded-xl bg-secondary/10 hover:bg-secondary/20 transition-colors duration-300 cursor-pointer perspective-1000"
+        >
+            <div
+                style={{
+                    transform: "translateZ(50px)",
+                    transformStyle: "preserve-3d",
+                }}
+                className="absolute inset-4 rounded-xl shadow-lg overflow-hidden bg-white"
+            >
+                <img
+                    src={image}
+                    alt={name}
+                    className="h-full w-full object-cover transition-transform duration-500 hover:scale-110"
+                    loading="lazy"
+                />
             </div>
 
-            {/* HTML Overlay for Text */}
-            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent text-white pointer-events-none">
-                <h3 className="text-xl font-bold font-serif">{name}</h3>
-                {price && <p className="text-sm opacity-90">{price}</p>}
+            <div
+                style={{
+                    transform: "translateZ(75px)",
+                }}
+                className="absolute bottom-8 left-8 right-8 p-4 bg-black/70 backdrop-blur-md rounded-lg text-white pointer-events-none shadow-xl"
+            >
+                <h3 className="text-xl font-bold font-serif mb-1 line-clamp-1">{name}</h3>
+                {price && <p className="text-sm font-medium opacity-90">{price}</p>}
             </div>
-        </div>
+        </motion.div>
     );
 };
