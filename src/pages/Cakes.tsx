@@ -2,12 +2,11 @@ import { useState, useMemo } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { products } from "@/data/products";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { cakes } from "@/data/cakes";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { CategorySidebar } from "@/components/CategorySidebar";
+import { Cake3DCard } from "@/components/Cake3DCard";
 
 const categoryLabels: Record<string, string> = {
   all: "All Cakes",
@@ -25,12 +24,15 @@ const CakesInner = ({ initialCategory }: { initialCategory?: string }) => {
   const [selectedCategory, setSelectedCategory] = useState(initialCategory || "all");
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
 
+  // Exclude 'homepage' cakes from the general gallery as requested
+  const shopCakes = useMemo(() => cakes.filter(c => c.category !== 'homepage'), []);
+
   const filteredProducts = useMemo(
     () =>
       selectedCategory === "all"
-        ? products
-        : products.filter((p) => p.category === selectedCategory),
-    [selectedCategory]
+        ? shopCakes
+        : shopCakes.filter((p) => p.category === selectedCategory),
+    [selectedCategory, shopCakes]
   );
 
   const activeLabel = categoryLabels[selectedCategory] || categoryLabels.all;
@@ -43,9 +45,8 @@ const CakesInner = ({ initialCategory }: { initialCategory?: string }) => {
         <div className="container mx-auto px-6 lg:px-12">
           <div
             ref={titleRef}
-            className={`mb-12 text-center transition-all duration-1000 ${
-              titleVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
-            }`}
+            className={`mb-12 text-center transition-all duration-1000 ${titleVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
+              }`}
           >
             <h1 className="mb-4 text-5xl font-bold md:text-6xl lg:text-7xl">
               {activeLabel}
@@ -88,38 +89,15 @@ const CakesInner = ({ initialCategory }: { initialCategory?: string }) => {
                     <div
                       key={product.id}
                       ref={ref}
-                      className={`transition-all duration-700 ${
-                        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
-                      }`}
+                      className={`transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
+                        }`}
                       style={{ transitionDelay: `${index * 100}ms` }}
                     >
-                      <Link to={`/product/${product.id}`}>
-                        <Card className="group overflow-hidden border-none shadow-lg hover-lift bg-card h-full">
-                          <div className="relative h-64 overflow-hidden">
-                            <img
-                              src={product.images[0]}
-                              alt={product.name}
-                              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                            />
-                            {product.isFeatured && (
-                              <Badge className="absolute top-4 right-4 bg-primary">Featured</Badge>
-                            )}
-                            {product.isCustomizable && (
-                              <Badge className="absolute top-4 left-4 bg-secondary">Customizable</Badge>
-                            )}
-                            <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                          </div>
-                          <CardHeader>
-                            <CardTitle className="text-2xl">{product.name}</CardTitle>
-                            <CardDescription className="text-base">
-                              {product.shortDescription}
-                            </CardDescription>
-                          </CardHeader>
-                          <CardContent>
-                            <p className="text-xl font-semibold text-primary">From KSh {product.price}</p>
-                          </CardContent>
-                        </Card>
-                      </Link>
+                      <Cake3DCard
+                        image={product.image}
+                        name={product.name}
+                        price={product.price || "Contact for Price"}
+                      />
                     </div>
                   );
                 })}

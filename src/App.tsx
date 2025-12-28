@@ -19,6 +19,8 @@ import { Cakes, CakesByCategory } from "./pages/Cakes";
 import { LiveChat } from "@/components/LiveChat";
 import PageLoader from "@/components/PageLoader";
 
+import { AnnouncementBar } from "@/components/AnnouncementBar";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -30,6 +32,7 @@ const App = () => (
         <Sonner />
         <LiveChat />
         <BrowserRouter>
+          <AnnouncementBar />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/shop" element={<Shop />} />

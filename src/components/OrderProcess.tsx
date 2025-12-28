@@ -5,7 +5,7 @@ const steps = [
   {
     icon: MessageCircle,
     title: "Share Your Vision",
-    description: "Tell us about your event, theme, flavors, and any special requests via WhatsApp or our order form.",
+    description: "Tell us about your event 24-48 hours in advance. Share your theme, flavors, and any special requests via WhatsApp.",
     color: "bg-primary/10 text-primary",
   },
   {
@@ -17,7 +17,7 @@ const steps = [
   {
     icon: Truck,
     title: "Fresh Bake & Deliver",
-    description: "Your cake is baked fresh the morning of your event and delivered safely to your location.",
+    description: "Your cake is baked fresh on the day of your event (orders require 24-48h notice) and delivered safely.",
     color: "bg-coral/10 text-coral",
   },
   {
@@ -36,9 +36,8 @@ export const OrderProcess = () => {
       <div className="container mx-auto px-6 lg:px-12">
         <div
           ref={ref}
-          className={`mb-12 text-center transition-all duration-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`mb-12 text-center transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
         >
           <p className="text-sm uppercase tracking-[0.3em] text-primary mb-3">
             Simple Process
@@ -51,14 +50,13 @@ export const OrderProcess = () => {
         <div className="relative">
           {/* Connection Line */}
           <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-border hidden lg:block -translate-y-1/2" />
-          
+
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {steps.map((step, index) => (
               <article
                 key={step.title}
-                className={`relative text-center transition-all duration-700 ${
-                  isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-                }`}
+                className={`relative text-center transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+                  }`}
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
                 {/* Step Number */}
@@ -70,7 +68,7 @@ export const OrderProcess = () => {
                     {index + 1}
                   </span>
                 </div>
-                
+
                 <h3 className="mb-3 text-xl font-semibold">{step.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   {step.description}
