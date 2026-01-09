@@ -47,7 +47,7 @@ export const Hero = () => {
               <Button
                 size="lg"
                 className="group bg-primary hover:bg-primary/90 text-primary-foreground text-base px-8 py-6 rounded-full shadow-lg"
-                onClick={() => navigate('/shop')}
+                onClick={() => navigate('/cakes')}
               >
                 Order Now
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />

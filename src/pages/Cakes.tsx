@@ -1,21 +1,29 @@
 import { useState, useMemo } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { cakes } from "@/data/cakes";
+import { cakes, CakeCategory } from "@/data/cakes";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { CategorySidebar } from "@/components/CategorySidebar";
 import { Cake3DCard } from "@/components/Cake3DCard";
+import { useLightbox } from "@/components/ImageLightbox";
 
 const categoryLabels: Record<string, string> = {
   all: "All Cakes",
-  birthday: "Birthday Cakes",
-  celebration: "Celebration Cakes",
-  cupcakes: "Cupcakes",
-  "special-design": "Special Design Cakes",
-  "mini-cakes": "Mini Cakes",
-  seasonal: "Seasonal Cakes",
+  "0.5kg": "0.5kg Cakes",
+  "1kg": "1kg Cakes",
+  "bento-5": "Bento + 5 Cupcakes",
+  "bento-2": "Bento + 2 Cupcakes",
+  "cupcakes": "Cupcakes",
+};
+
+const categoryPrices: Record<string, string> = {
+  "0.5kg": "From KSh 1,500",
+  "1kg": "From KSh 2,300",
+  "bento-5": "From KSh 1,500",
+  "bento-2": "From KSh 1,200",
+  "cupcakes": "From KSh 800",
 };
 
 const categoryOptions = Object.entries(categoryLabels).map(([id, label]) => ({ id, label }));
@@ -23,8 +31,10 @@ const categoryOptions = Object.entries(categoryLabels).map(([id, label]) => ({ i
 const CakesInner = ({ initialCategory }: { initialCategory?: string }) => {
   const [selectedCategory, setSelectedCategory] = useState(initialCategory || "all");
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
+  const navigate = useNavigate();
+  const { openLightbox } = useLightbox();
 
-  // Exclude 'homepage' cakes from the general gallery as requested
+  // Exclude 'homepage' cakes from the general gallery
   const shopCakes = useMemo(() => cakes.filter(c => c.category !== 'homepage'), []);
 
   const filteredProducts = useMemo(
@@ -36,6 +46,21 @@ const CakesInner = ({ initialCategory }: { initialCategory?: string }) => {
   );
 
   const activeLabel = categoryLabels[selectedCategory] || categoryLabels.all;
+
+  const handleCakeClick = (cake: typeof cakes[0]) => {
+    // Open lightbox to view image
+    openLightbox([cake.image]);
+  };
+
+  const handleCategoryClick = (categoryId: string) => {
+    setSelectedCategory(categoryId);
+    // Update URL without full page reload
+    if (categoryId === "all") {
+      navigate("/cakes");
+    } else {
+      navigate(`/cakes/${categoryId}`);
+    }
+  };
 
   return (
     <main className="min-h-screen">
@@ -52,8 +77,13 @@ const CakesInner = ({ initialCategory }: { initialCategory?: string }) => {
               {activeLabel}
             </h1>
             <p className="mx-auto max-w-2xl text-lg text-muted-foreground md:text-xl">
-              Browse handcrafted cakes designed for your special occasions.
+              Browse our handcrafted cakes designed for your special occasions.
             </p>
+            {selectedCategory !== "all" && categoryPrices[selectedCategory] && (
+              <p className="mt-4 text-xl font-semibold text-primary">
+                {categoryPrices[selectedCategory]}
+              </p>
+            )}
           </div>
         </div>
       </section>
@@ -64,16 +94,17 @@ const CakesInner = ({ initialCategory }: { initialCategory?: string }) => {
             <CategorySidebar
               includeAllOption
               activeCategory={selectedCategory}
-              onSelectCategory={setSelectedCategory}
+              onSelectCategory={handleCategoryClick}
             />
 
             <div className="flex-1">
+              {/* Mobile category filter */}
               <div className="mb-8 flex flex-wrap gap-3 lg:hidden">
                 {categoryOptions.map((category) => (
                   <Button
                     key={category.id}
                     variant={selectedCategory === category.id ? "default" : "outline"}
-                    onClick={() => setSelectedCategory(category.id)}
+                    onClick={() => handleCategoryClick(category.id)}
                     className="rounded-full text-sm"
                   >
                     {category.label}
@@ -81,6 +112,7 @@ const CakesInner = ({ initialCategory }: { initialCategory?: string }) => {
                 ))}
               </div>
 
+              {/* Cake Grid */}
               <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                 {filteredProducts.map((product, index) => {
                   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
@@ -91,17 +123,26 @@ const CakesInner = ({ initialCategory }: { initialCategory?: string }) => {
                       ref={ref}
                       className={`transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
                         }`}
-                      style={{ transitionDelay: `${index * 100}ms` }}
+                      style={{ transitionDelay: `${Math.min(index, 8) * 100}ms` }}
                     >
                       <Cake3DCard
                         image={product.image}
                         name={product.name}
-                        price={product.price || "Contact for Price"}
+                        price={categoryPrices[product.category] || "Contact for Price"}
+                        onClick={() => handleCakeClick(product)}
                       />
                     </div>
                   );
                 })}
               </div>
+
+              {filteredProducts.length === 0 && (
+                <div className="text-center py-16">
+                  <p className="text-muted-foreground text-lg">
+                    No cakes found in this category.
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>
