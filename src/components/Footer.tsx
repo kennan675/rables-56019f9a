@@ -3,7 +3,7 @@ import logo from "@/assets/rable-logo.jpg";
 
 const TikTokIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
   </svg>
 );
 
@@ -23,17 +23,17 @@ export const Footer = () => {
               Crafting sweet memories, one cake at a time
             </p>
           </div>
-          
+
           <div>
             <h4 className="mb-4 font-semibold text-cream">Quick Links</h4>
             <ul className="space-y-2 text-sm text-cream/70">
-              <li><a href="#" className="transition-colors hover:text-gold">Home</a></li>
-              <li><a href="#" className="transition-colors hover:text-gold">Menu</a></li>
-              <li><a href="#" className="transition-colors hover:text-gold">About</a></li>
-              <li><a href="#" className="transition-colors hover:text-gold">Contact</a></li>
+              <li><a href="/" className="transition-colors hover:text-gold">Home</a></li>
+              <li><a href="/cakes" className="transition-colors hover:text-gold">Cakes</a></li>
+              <li><a href="/about" className="transition-colors hover:text-gold">About</a></li>
+              <li><a href="/contact" className="transition-colors hover:text-gold">Contact</a></li>
             </ul>
           </div>
-          
+
           <div>
             <h4 className="mb-4 font-semibold text-cream">Services</h4>
             <ul className="space-y-2 text-sm text-cream/70">
@@ -43,7 +43,7 @@ export const Footer = () => {
               <li><a href="#" className="transition-colors hover:text-gold">Gift Boxes</a></li>
             </ul>
           </div>
-          
+
           <div>
             <h4 className="mb-4 font-semibold text-cream">Follow Us</h4>
             <div className="flex gap-4">
@@ -56,7 +56,7 @@ export const Footer = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="mt-12 border-t border-white/10 pt-8 text-center text-sm text-cream/60">
           <p>&copy; 2025 Rable Bakes. All rights reserved.</p>
         </div>

@@ -8,15 +8,17 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
-import { ShoppingCart, MessageCircle, ArrowLeft } from "lucide-react";
+import { ShoppingCart, MessageCircle, ArrowLeft, ZoomIn } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { generateWhatsAppLink } from "@/utils/whatsapp";
+import { useLightbox } from "@/components/ImageLightbox";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const product = products.find(p => p.id === id);
   const { addToCart } = useCart();
-  
+  const { openLightbox } = useLightbox();
+
   const [selectedVariant, setSelectedVariant] = useState(
     product?.priceVariants?.[0] || null
   );
@@ -59,7 +61,7 @@ const ProductDetail = () => {
   return (
     <main className="min-h-screen">
       <Navigation />
-      
+
       <section className="pt-32 pb-24">
         <div className="container mx-auto px-6 lg:px-12">
           <Link to="/shop" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary mb-8 transition-colors">
@@ -70,18 +72,42 @@ const ProductDetail = () => {
           <div className="grid gap-12 lg:grid-cols-2">
             {/* Product Images */}
             <div className="space-y-4">
-              <div className="relative overflow-hidden rounded-lg">
+              <div
+                className="relative overflow-hidden rounded-lg cursor-pointer group"
+                onClick={() => openLightbox(product.images)}
+              >
                 <img
                   src={product.images[0]}
                   alt={product.name}
-                  className="w-full h-[500px] object-cover"
+                  className="w-full h-[500px] object-cover transition-transform duration-500 group-hover:scale-105"
                 />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                  <ZoomIn className="w-12 h-12 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
                 {product.isFeatured && (
                   <Badge className="absolute top-4 right-4 bg-primary">
                     Featured
                   </Badge>
                 )}
               </div>
+              {/* Thumbnail strip for multiple images */}
+              {product.images.length > 1 && (
+                <div className="flex gap-2 overflow-x-auto pb-2">
+                  {product.images.map((img, index) => (
+                    <button
+                      key={index}
+                      onClick={() => openLightbox(product.images, index)}
+                      className="flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 border-border hover:border-primary transition-colors"
+                    >
+                      <img
+                        src={img}
+                        alt={`${product.name} ${index + 1}`}
+                        className="w-full h-full object-cover"
+                      />
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* Product Info */}

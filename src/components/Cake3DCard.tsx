@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { useLightbox } from "@/components/ImageLightbox";
 
 interface Cake3DCardProps {
     image: string;
@@ -10,6 +11,7 @@ interface Cake3DCardProps {
 
 export const Cake3DCard = ({ image, name, price, onClick }: Cake3DCardProps) => {
     const ref = useRef<HTMLDivElement>(null);
+    const { openLightbox } = useLightbox();
 
     const x = useMotionValue(0);
     const y = useMotionValue(0);
@@ -43,12 +45,20 @@ export const Cake3DCard = ({ image, name, price, onClick }: Cake3DCardProps) => 
         y.set(0);
     };
 
+    const handleClick = () => {
+        if (onClick) {
+            onClick();
+        } else {
+            openLightbox([image]);
+        }
+    };
+
     return (
         <motion.div
             ref={ref}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            onClick={onClick}
+            onClick={handleClick}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -86,3 +96,4 @@ export const Cake3DCard = ({ image, name, price, onClick }: Cake3DCardProps) => 
         </motion.div>
     );
 };
+

@@ -1,9 +1,11 @@
 import { products } from "@/data/products";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useLightbox } from "@/components/ImageLightbox";
 
 export const FeaturedCakes = () => {
   const featured = products.filter((p) => p.isFeatured);
   const { ref, isVisible } = useScrollAnimation();
+  const { openLightbox } = useLightbox();
 
   if (!featured.length) return null;
 
@@ -12,9 +14,8 @@ export const FeaturedCakes = () => {
       <div className="container mx-auto px-6 lg:px-12">
         <div
           ref={ref}
-          className={`mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between transition-all duration-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
         >
           <div>
             <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-2">
@@ -36,7 +37,10 @@ export const FeaturedCakes = () => {
               className="group rounded-2xl border border-border bg-card/90 backdrop-blur-sm overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500"
             >
               {cake.images && cake.images[0] && (
-                <div className="overflow-hidden">
+                <div
+                  className="overflow-hidden cursor-pointer"
+                  onClick={() => openLightbox(cake.images || [])}
+                >
                   <img
                     src={cake.images[0]}
                     alt={cake.name}
@@ -61,3 +65,4 @@ export const FeaturedCakes = () => {
     </section>
   );
 };
+
