@@ -129,6 +129,7 @@ const CakesInner = ({ initialCategory }: { initialCategory?: string }) => {
                         image={product.image}
                         name={product.name}
                         price={categoryPrices[product.category] || "Contact for Price"}
+                        category={categoryLabels[product.category] || product.category}
                         onClick={() => handleCakeClick(product)}
                       />
                     </div>

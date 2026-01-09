@@ -47,6 +47,7 @@ export const CustomerFavorites = () => {
                 image={cake.image}
                 name={cake.name}
                 price={cake.price || "Contact for Price"}
+                category="Signature Cake"
               />
             </div>
           ))}
