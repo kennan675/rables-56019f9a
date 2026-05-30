@@ -107,7 +107,7 @@ const ProductRail = ({
                   <button
                     onClick={() =>
                       window.open(
-                        `https://wa.me/254704209055?text=${encodeURIComponent(
+                        `https://wa.me/254729063060?text=${encodeURIComponent(
                           `Hi Rable Bakes! I'm interested in the ${item.name}.`
                         )}`,
                         "_blank"
@@ -134,7 +134,7 @@ export const PremiumRails = () => {
     <div className="bg-background">
       <ProductRail
         title="Customer Favorites"
-        subtitle="Beloved cakes that our Nairobi & Eldoret families reorder again and again."
+        subtitle="Beloved cakes that our Juja, Kasarani & Nairobi families reorder again and again."
         items={customerFavorites}
         badgeLabel="Chef curated"
         viewAllHref="/cakes"

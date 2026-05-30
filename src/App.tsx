@@ -3,7 +3,6 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { CartProvider } from "@/contexts/CartContext";
 import { LightboxProvider } from "@/components/ImageLightbox";
 import Index from "./pages/Index";
 import Shop from "./pages/Shop";
@@ -11,15 +10,14 @@ import ProductDetail from "./pages/ProductDetail";
 import CustomOrders from "./pages/CustomOrders";
 import CustomCake from "./pages/CustomCake";
 import BakingClasses from "./pages/BakingClasses";
-import Cart from "./pages/Cart";
-import Checkout from "./pages/Checkout";
+
 import Auth from "./pages/Auth";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 import { Cakes, CakesByCategory } from "./pages/Cakes";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import { LiveChat } from "@/components/LiveChat";
+
 import PageLoader from "@/components/PageLoader";
 
 import { AnnouncementBar } from "@/components/AnnouncementBar";
@@ -29,13 +27,12 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <CartProvider>
       <TooltipProvider>
         <LightboxProvider>
           <PageLoader />
           <Toaster />
           <Sonner />
-          <LiveChat />
+
           <BrowserRouter>
             <AnnouncementBar />
             <Routes>
@@ -47,8 +44,7 @@ const App = () => (
               <Route path="/custom-orders" element={<CustomOrders />} />
               <Route path="/custom-cake" element={<CustomCake />} />
               <Route path="/baking-classes" element={<BakingClasses />} />
-              <Route path="/cart" element={<Cart />} />
-              <Route path="/checkout" element={<Checkout />} />
+
               <Route path="/auth" element={<Auth />} />
               <Route path="/admin" element={<Admin />} />
               <Route path="/about" element={<About />} />
@@ -57,8 +53,7 @@ const App = () => (
             </Routes>
           </BrowserRouter>
         </LightboxProvider>
-      </TooltipProvider>
-    </CartProvider>
+    </TooltipProvider>
   </QueryClientProvider>
 );
 

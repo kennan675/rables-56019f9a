@@ -13,7 +13,7 @@ const testimonials = [
   {
     id: 2,
     name: "Kevin Omondi",
-    location: "Eldoret",
+    location: "Juja, Nairobi",
     quote: "Seamless ordering and perfect delivery. They captured our graduation theme beautifully. The attention to detail was amazing and the cake was delicious!",
     rating: 5,
     avatar: "KO",

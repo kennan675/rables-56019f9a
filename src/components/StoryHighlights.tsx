@@ -46,7 +46,7 @@ export const StoryHighlights = () => {
               Stories, press & classes
             </h2>
             <p className="mt-2 max-w-2xl text-sm md:text-base text-muted-foreground">
-              A look behind the scenes at what we are baking, teaching, and celebrating across Nairobi & Eldoret.
+              A look behind the scenes at what we are baking, teaching, and celebrating across Juja, Kasarani & Nairobi.
             </p>
           </div>
         </div>

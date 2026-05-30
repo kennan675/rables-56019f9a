@@ -12,7 +12,7 @@ export const AnnouncementBar = () => {
             <div className="container mx-auto flex items-center justify-center gap-2 text-sm font-medium text-center pr-8">
                 <Clock className="w-4 h-4 inline-block" />
                 <p>
-                    Note: All custom orders require <span className="font-bold underline">24-48 hours</span> prior notice for baking and preparation.
+                    Note: All custom orders require <span className="font-bold underline">48 hours</span> prior notice for baking and preparation.
                 </p>
             </div>
             <button

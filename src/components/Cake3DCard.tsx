@@ -52,7 +52,7 @@ export const Cake3DCard = ({ image, name, price, category, onClick }: Cake3DCard
         const message = encodeURIComponent(
             `Hi Rable Bakes! 🎂\n\nI'd like to order this cake:\n\n📸 Name: ${name}\n💰 Price: ${price || "Please quote"}\n${category ? `📂 Category: ${category}` : ""}\n\nPlease let me know availability and next steps!`
         );
-        window.open(`https://wa.me/254704209055?text=${message}`, '_blank');
+        window.open(`https://wa.me/254729063060?text=${message}`, '_blank');
     };
 
     return (

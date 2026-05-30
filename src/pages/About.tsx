@@ -51,7 +51,7 @@ const About = () => {
                             About <span className="gradient-text">Rable Bakes</span>
                         </h1>
                         <p className="text-lg text-muted-foreground md:text-xl">
-                            Crafting sweet memories for families across Nairobi and Eldoret
+                            Crafting sweet memories for families across Juja, Kasarani & Nairobi
                         </p>
                     </div>
                 </div>
@@ -93,7 +93,7 @@ const About = () => {
                                     every celebration deserves a cake that's as special as the moment itself.
                                 </p>
                                 <p>
-                                    Today, we're proud to serve both Nairobi and Eldoret, bringing our signature
+                                    Today, we're proud to mainly serve Juja and Kasarani, and Nairobi at large, bringing our signature
                                     cakes, cupcakes, and baked goods to celebrations big and small. From birthdays
                                     to weddings, from corporate events to quiet family gatherings — we're honored
                                     to be part of your special moments.

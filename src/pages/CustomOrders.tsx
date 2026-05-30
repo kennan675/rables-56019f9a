@@ -88,7 +88,7 @@ const CustomOrders = () => {
               <CardContent className="pt-8 pb-8">
                 <h2 className="text-3xl font-bold mb-4">Ready to Start?</h2>
                 <p className="text-lg text-muted-foreground mb-6">
-                  Contact us now on WhatsApp to discuss your custom cake order. We typically respond within a few hours!
+                  Contact us now on WhatsApp to discuss your custom cake order. Remember to order at least 48 hours in advance!
                 </p>
                 <Button
                   size="lg"

@@ -31,11 +31,11 @@ const bakingClass = {
     "Cake costing for business"
   ],
   locations: [
-    "Nairobi: Uhuru Phase 4 or Juja",
-    "Eldoret: Unga Estate (West)"
+    "Juja",
+    "Kasarani",
   ],
   contact: {
-    phone1: "+254704209055",
+    phone1: "+254729063060",
     phone2: "+254729063060",
     instagram: "@rablebakes"
   },
@@ -54,7 +54,7 @@ const BakingClasses = () => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
   const { ref: cardRef, isVisible: cardVisible } = useScrollAnimation({ threshold: 0.2 });
   
-  const BUSINESS_PHONE = "254704209055";
+  const BUSINESS_PHONE = "254729063060";
   
   const handleEnrollClick = () => {
     const message = encodeURIComponent(

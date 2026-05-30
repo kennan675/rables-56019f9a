@@ -26,8 +26,8 @@ const items: TrustItem[] = [
   {
     icon: Phone,
     title: "24/7 WhatsApp",
-    description: "+254 704 209 055",
-    href: "https://wa.me/254704209055",
+    description: "+254 729 063 060",
+    href: "https://wa.me/254729063060",
   },
 ];
 

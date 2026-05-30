@@ -30,7 +30,7 @@ export const Hero = () => {
             <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary/20 px-4 py-2 backdrop-blur-sm">
               <span className="h-2 w-2 animate-pulse rounded-full bg-primary" />
               <span className="text-sm font-medium text-primary-foreground">
-                Fresh Bakes Daily in Nairobi & Eldoret
+                Fresh Bakes Daily in Juja, Kasarani & Nairobi
               </span>
             </div>
 
@@ -56,7 +56,7 @@ export const Hero = () => {
                 size="lg"
                 variant="outline"
                 className="border-2 border-primary-foreground/30 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground hover:text-foreground text-base px-8 py-6 rounded-full backdrop-blur-sm"
-                onClick={() => window.open('https://wa.me/254704209055?text=' + encodeURIComponent("Hi Rable Bakes! I'd like to customize a cake."), '_blank')}
+                onClick={() => window.open('https://wa.me/254729063060?text=' + encodeURIComponent("Hi Rable Bakes! I'd like to customize a cake."), '_blank')}
               >
                 <MessageCircle className="mr-2 h-5 w-5" />
                 Chat on WhatsApp

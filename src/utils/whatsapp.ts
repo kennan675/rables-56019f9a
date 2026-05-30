@@ -1,6 +1,6 @@
 import { Product, CartItem } from "@/types/product";
 
-const BUSINESS_PHONE = "254704209055"; // Primary Rable Bakes WhatsApp number
+const BUSINESS_PHONE = "254729063060"; // Primary Rable Bakes WhatsApp number
 
 export const generateWhatsAppLink = (
   product: Product,

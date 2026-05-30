@@ -7,10 +7,9 @@ interface CategorySidebarProps {
 }
 
 const categories = [
-  { id: "0.5kg", label: "0.5kg Cakes" },
-  { id: "1kg", label: "1kg Cakes" },
-  { id: "bento-5", label: "Bento + 5 Cupcakes" },
-  { id: "bento-2", label: "Bento + 2 Cupcakes" },
+  { id: "birthday-cakes", label: "Birthday Cakes" },
+  { id: "graduation-cakes", label: "Graduation Cakes" },
+  { id: "bento", label: "Bento Packages" },
   { id: "cupcakes", label: "Cupcakes" },
 ];
 

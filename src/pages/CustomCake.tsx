@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { MessageCircle } from "lucide-react";
 
-const BUSINESS_PHONE = "254704209055"; // keep in sync with whatsapp util
+const BUSINESS_PHONE = "254729063060"; // keep in sync with whatsapp util
 
 const CustomCake = () => {
   const [name, setName] = useState("");

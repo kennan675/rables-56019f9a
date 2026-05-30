@@ -5,7 +5,7 @@ const steps = [
   {
     icon: MessageCircle,
     title: "Share Your Vision",
-    description: "Tell us about your event 24-48 hours in advance. Share your theme, flavors, and any special requests via WhatsApp.",
+    description: "Tell us about your event at least 48 hours in advance. Share your theme, flavors, and any special requests via WhatsApp.",
     color: "bg-primary/10 text-primary",
   },
   {
@@ -17,7 +17,7 @@ const steps = [
   {
     icon: Truck,
     title: "Fresh Bake & Deliver",
-    description: "Your cake is baked fresh on the day of your event (orders require 24-48h notice) and delivered safely.",
+    description: "Your cake is baked fresh on the day of your event (orders require 48h notice) and delivered safely.",
     color: "bg-coral/10 text-coral",
   },
   {

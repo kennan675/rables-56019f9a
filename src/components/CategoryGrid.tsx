@@ -3,31 +3,31 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const categories = [
   {
-    id: "whole-cakes",
-    name: "Whole Cakes",
+    id: "birthday-cakes",
+    name: "Birthday Cakes",
     image: "/images/rables/1kg/rb 2.jpeg",
-    description: "Delicious cakes in various flavors",
+    description: "Custom cakes for every birthday celebration",
     color: "from-primary/80",
+  },
+  {
+    id: "graduation-cakes",
+    name: "Graduation Cakes",
+    image: "/images/rables/0.5kg/rb 18.jpeg",
+    description: "Celebrate your milestone in style",
+    color: "from-secondary/80",
   },
   {
     id: "bento",
     name: "Bento Packages",
     image: "/images/rables/bento-5/rb 16.jpeg",
     description: "Mini cakes with cupcakes combo",
-    color: "from-secondary/80",
+    color: "from-muted/80",
   },
   {
     id: "cupcakes",
     name: "Cupcakes",
     image: "/images/rables/cupcakes/rb 7.jpeg",
     description: "Perfect for any gathering",
-    color: "from-muted/80",
-  },
-  {
-    id: "donuts",
-    name: "Donuts",
-    image: "/images/rables/donuts.png",
-    description: "Glazed & assorted donuts",
     color: "from-accent/80",
   },
 ];

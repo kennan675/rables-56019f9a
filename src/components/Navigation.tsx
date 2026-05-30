@@ -1,15 +1,13 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ShoppingCart, Search, Instagram } from "lucide-react";
+import { Menu, X, MessageCircle, Search, Instagram } from "lucide-react";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
-import { useCart } from "@/contexts/CartContext";
 
 export const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const scrollPosition = useScrollPosition();
   const isScrolled = scrollPosition > 50;
-  const { cartCount } = useCart();
   const navigate = useNavigate();
 
   const navLinks = [
@@ -93,33 +91,27 @@ export const Navigation = () => {
               </svg>
             </a>
           </div>
-          <Link to="/cart" className="relative">
-            <Button
-              variant="ghost"
-              size="icon"
-              className={isScrolled ? 'text-foreground hover:bg-muted/60' : 'text-foreground hover:bg-muted/60'}
-            >
-              <ShoppingCart className="h-5 w-5" />
-              {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-primary text-xs text-primary-foreground flex items-center justify-center">
-                  {cartCount}
-                </span>
-              )}
-            </Button>
-          </Link>
+          <a
+            href="https://wa.me/254729063060?text=Hi%20Rable%20Bakes!%20I'd%20like%20to%20place%20an%20order."
+            target="_blank"
+            rel="noreferrer"
+            className="relative inline-flex items-center justify-center h-10 w-10 rounded-full bg-[#25D366] text-white hover:bg-[#20bd5a] transition-colors"
+            aria-label="Order on WhatsApp"
+          >
+            <MessageCircle className="h-5 w-5" />
+          </a>
         </nav>
 
         <div className="flex lg:hidden gap-2">
-          <Link to="/cart" className="relative">
-            <Button variant="ghost" size="icon" className={isScrolled ? '' : 'text-primary-foreground hover:text-accent hover:bg-primary-foreground/10'}>
-              <ShoppingCart className="h-5 w-5" />
-              {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-primary text-xs text-primary-foreground flex items-center justify-center">
-                  {cartCount}
-                </span>
-              )}
-            </Button>
-          </Link>
+          <a
+            href="https://wa.me/254729063060?text=Hi%20Rable%20Bakes!%20I'd%20like%20to%20place%20an%20order."
+            target="_blank"
+            rel="noreferrer"
+            className="relative inline-flex items-center justify-center h-9 w-9 rounded-full bg-[#25D366] text-white hover:bg-[#20bd5a] transition-colors"
+            aria-label="Order on WhatsApp"
+          >
+            <MessageCircle className="h-4 w-4" />
+          </a>
           <Button variant="ghost" size="icon" className="text-foreground" aria-label="Instagram" asChild>
             <a href="https://instagram.com/rablebakes" target="_blank" rel="noreferrer">
               <Instagram className="h-4 w-4" />

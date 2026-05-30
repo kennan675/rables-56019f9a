@@ -8,7 +8,7 @@ const reviews = [
       "The cake was even more beautiful in person and tasted incredible. Our guests couldn&apos;t stop talking about it!",
   },
   {
-    name: "Kevin, Eldoret",
+    name: "Kevin, Juja",
     quote:
       "Seamless ordering and delivery. Rable Bakes captured our theme perfectly for the graduation party.",
   },
@@ -64,7 +64,7 @@ export const ReviewsAndClasses = () => {
               Learn to bake the Rable way
             </h3>
             <p className="text-sm md:text-base text-muted-foreground mb-4">
-              Join our intimate, hands-on classes in Nairobi and Eldoret and learn how to bake and decorate
+              Join our intimate, hands-on classes in Juja and Kasarani and learn how to bake and decorate
               beautiful cakes at home.
             </p>
             <button

@@ -8,7 +8,7 @@ export const CustomCakesHighlight = () => {
   const openWhatsApp = () => {
     const text = "Hi Rable Bakes! I would love to design a fully custom cake for my occasion.";
     window.open(
-      `https://wa.me/254704209055?text=${encodeURIComponent(text)}`,
+      `https://wa.me/254729063060?text=${encodeURIComponent(text)}`,
       "_blank"
     );
   };

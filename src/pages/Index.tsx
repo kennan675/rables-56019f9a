@@ -2,7 +2,7 @@ import { Navigation } from "@/components/Navigation";
 import { TrustStrip } from "@/components/TrustStrip";
 import { Hero } from "@/components/Hero";
 import { CategoryGrid } from "@/components/CategoryGrid";
-import { CustomerFavorites } from "@/components/CustomerFavorites";
+
 import { OrderProcess } from "@/components/OrderProcess";
 import { Testimonials } from "@/components/Testimonials";
 import { BakingClassesPreview } from "@/components/BakingClassesPreview";
@@ -17,7 +17,7 @@ const Index = () => {
       <Navigation />
       <Hero />
       <CategoryGrid />
-      <CustomerFavorites />
+
       <OrderProcess />
       <LoyaltySpotlight />
       <Testimonials />

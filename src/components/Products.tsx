@@ -93,7 +93,7 @@ export const Products = () => {
                       <button
                         onClick={() =>
                           window.open(
-                            `https://wa.me/254704209055?text=${encodeURIComponent(
+                            `https://wa.me/254729063060?text=${encodeURIComponent(
                               `Hi Rable Bakes! I'm interested in the ${product.name}.`
                             )}`,
                             '_blank'

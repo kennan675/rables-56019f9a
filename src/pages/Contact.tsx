@@ -37,12 +37,12 @@ const Contact = () => {
         {
             icon: MapPin,
             title: "Visit Us",
-            details: ["Nairobi, Kenya", "Eldoret, Kenya"],
+            details: ["Juja, Kiambu County", "Kasarani, Nairobi"],
         },
         {
             icon: Phone,
             title: "Call Us",
-            details: ["+254 704 209 055"],
+            details: ["+254 729 063 060"],
         },
         {
             icon: Mail,
@@ -52,13 +52,13 @@ const Contact = () => {
         {
             icon: Clock,
             title: "Working Hours",
-            details: ["Mon - Sat: 8am - 8pm", "Sunday: 10am - 6pm"],
+            details: ["Mon - Sat: 8am - 8pm", "Sunday: Closed"],
         },
     ];
 
     const handleWhatsAppClick = () => {
         const message = encodeURIComponent("Hi Rable Bakes! I'd like to inquire about your cakes.");
-        window.open(`https://wa.me/254704209055?text=${message}`, '_blank');
+        window.open(`https://wa.me/254729063060?text=${message}`, '_blank');
     };
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -67,7 +67,7 @@ const Contact = () => {
         const message = encodeURIComponent(
             `Hi Rable Bakes!\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage: ${formData.message}`
         );
-        window.open(`https://wa.me/254704209055?text=${message}`, '_blank');
+        window.open(`https://wa.me/254729063060?text=${message}`, '_blank');
     };
 
     return (
@@ -231,7 +231,7 @@ const Contact = () => {
                             <div className="rounded-2xl overflow-hidden border border-border h-64 bg-muted flex items-center justify-center">
                                 <div className="text-center text-muted-foreground">
                                     <MapPin className="w-12 h-12 mx-auto mb-2 opacity-50" />
-                                    <p>Nairobi & Eldoret, Kenya</p>
+                                    <p>Juja & Kasarani, Nairobi</p>
                                 </div>
                             </div>
                         </div>

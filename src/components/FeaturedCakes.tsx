@@ -25,7 +25,7 @@ export const FeaturedCakes = () => {
               Featured <span className="gradient-text">Cakes</span>
             </h2>
             <p className="mt-2 max-w-xl text-sm md:text-base text-muted-foreground">
-              A quick glimpse at some of the designs our clients in Nairobi & Eldoret love the most.
+              A quick glimpse at some of the designs our clients in Juja, Kasarani & Nairobi love the most.
             </p>
           </div>
         </div>

@@ -43,7 +43,7 @@ export const CTASection = () => {
               size="lg"
               variant="outline"
               className="rounded-full border border-white/70 bg-white/15 px-8 py-6 text-base font-semibold text-white shadow-lg shadow-black/10 transition hover:bg-white/25 hover:border-white"
-              onClick={() => window.open('https://wa.me/254704209055', '_blank')}
+              onClick={() => window.open('https://wa.me/254729063060', '_blank')}
             >
               <MessageCircle className="mr-2 h-5 w-5" />
               Start Custom Order

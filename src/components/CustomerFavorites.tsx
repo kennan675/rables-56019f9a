@@ -24,7 +24,7 @@ export const CustomerFavorites = () => {
               Customer Favorites
             </h2>
             <p className="mt-3 max-w-xl text-muted-foreground">
-              The cakes our Nairobi & Eldoret families order again and again.
+              The cakes our Juja, Kasarani & Nairobi families order again and again.
             </p>
           </div>
           <Link

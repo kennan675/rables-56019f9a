@@ -26,7 +26,7 @@ export const Contact = () => {
             <span className="gradient-text">Special Together</span>
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground md:text-xl">
-            Ready to order or have questions? We serve clients across Nairobi and Eldoret and would love to hear from you.
+            Ready to order or have questions? We serve clients across Juja, Kasarani & Nairobi and would love to hear from you.
           </p>
         </div>
 
@@ -94,7 +94,7 @@ export const Contact = () => {
                   </div>
                   <div>
                     <p className="font-medium">Phone</p>
-                    <p className="text-muted-foreground">+254 704 209055 / +254 729 063060</p>
+                    <p className="text-muted-foreground">+254 729 063 060</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -113,7 +113,7 @@ export const Contact = () => {
                   <div>
                     <p className="font-medium">Location</p>
                     <p className="text-muted-foreground">
-                      Nairobi & Eldoret, Kenya<br />
+                      Juja & Kasarani, Nairobi<br />
                       (Full address to be confirmed)
                     </p>
                   </div>

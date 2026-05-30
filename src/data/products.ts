@@ -5,7 +5,7 @@ export const products: Product[] = [
   {
     id: "RB001",
     name: "Vanilla Cake",
-    category: "whole-cakes",
+    category: "birthday-cakes",
     price: 2300,
     priceVariants: [
       { size: "1kg", servings: "8-10", price: 2300 },
@@ -23,7 +23,7 @@ export const products: Product[] = [
   {
     id: "RB002",
     name: "Strawberry Cake",
-    category: "whole-cakes",
+    category: "birthday-cakes",
     price: 2300,
     priceVariants: [
       { size: "1kg", servings: "8-10", price: 2300 },
@@ -41,7 +41,7 @@ export const products: Product[] = [
   {
     id: "RB003",
     name: "Blueberry Cake",
-    category: "whole-cakes",
+    category: "birthday-cakes",
     price: 2300,
     priceVariants: [
       { size: "1kg", servings: "8-10", price: 2300 },
@@ -60,7 +60,7 @@ export const products: Product[] = [
   {
     id: "RB004",
     name: "Lemon Cake",
-    category: "whole-cakes",
+    category: "birthday-cakes",
     price: 2400,
     priceVariants: [
       { size: "1kg", servings: "8-10", price: 2400 },
@@ -78,7 +78,7 @@ export const products: Product[] = [
   {
     id: "RB005",
     name: "Orange Cake",
-    category: "whole-cakes",
+    category: "birthday-cakes",
     price: 2400,
     priceVariants: [
       { size: "1kg", servings: "8-10", price: 2400 },
@@ -97,7 +97,7 @@ export const products: Product[] = [
   {
     id: "RB006",
     name: "Chocolate Cake",
-    category: "whole-cakes",
+    category: "graduation-cakes",
     price: 2500,
     priceVariants: [
       { size: "1kg", servings: "8-10", price: 2500 },
@@ -115,7 +115,7 @@ export const products: Product[] = [
   {
     id: "RB007",
     name: "Chocolate Mint Cake",
-    category: "whole-cakes",
+    category: "birthday-cakes",
     price: 2500,
     priceVariants: [
       { size: "1kg", servings: "8-10", price: 2500 },
@@ -133,7 +133,7 @@ export const products: Product[] = [
   {
     id: "RB008",
     name: "Sponge Cake",
-    category: "whole-cakes",
+    category: "birthday-cakes",
     price: 2500,
     priceVariants: [
       { size: "1kg", servings: "8-10", price: 2500 },
@@ -151,7 +151,7 @@ export const products: Product[] = [
   {
     id: "RB009",
     name: "Bubblegum Cake",
-    category: "whole-cakes",
+    category: "birthday-cakes",
     price: 2500,
     priceVariants: [
       { size: "1kg", servings: "8-10", price: 2500 },
@@ -169,7 +169,7 @@ export const products: Product[] = [
   {
     id: "RB010",
     name: "Caramel Cake",
-    category: "whole-cakes",
+    category: "birthday-cakes",
     price: 2500,
     priceVariants: [
       { size: "1kg", servings: "8-10", price: 2500 },
@@ -188,7 +188,7 @@ export const products: Product[] = [
   {
     id: "RB011",
     name: "Pinacolada Cake",
-    category: "whole-cakes",
+    category: "birthday-cakes",
     price: 2700,
     priceVariants: [
       { size: "1kg", servings: "8-10", price: 2700 },
@@ -206,7 +206,7 @@ export const products: Product[] = [
   {
     id: "RB012",
     name: "Red Velvet Cake",
-    category: "whole-cakes",
+    category: "graduation-cakes",
     price: 2700,
     priceVariants: [
       { size: "1kg", servings: "8-10", price: 2700 },
@@ -224,7 +224,7 @@ export const products: Product[] = [
   {
     id: "RB013",
     name: "Lemon Poppy Cake",
-    category: "whole-cakes",
+    category: "birthday-cakes",
     price: 2700,
     priceVariants: [
       { size: "1kg", servings: "8-10", price: 2700 },
@@ -242,7 +242,7 @@ export const products: Product[] = [
   {
     id: "RB014",
     name: "Lemon Blueberry Cake",
-    category: "whole-cakes",
+    category: "graduation-cakes",
     price: 2700,
     priceVariants: [
       { size: "1kg", servings: "8-10", price: 2700 },
@@ -260,7 +260,7 @@ export const products: Product[] = [
   {
     id: "RB015",
     name: "Oreo Cake",
-    category: "whole-cakes",
+    category: "graduation-cakes",
     price: 2700,
     priceVariants: [
       { size: "1kg", servings: "8-10", price: 2700 },
@@ -335,60 +335,6 @@ export const products: Product[] = [
     isCustomizable: false,
     isFeatured: true,
     ingredients: "Flour, eggs, butter, sugar, buttercream",
-    allergens: "Contains: wheat, eggs, dairy",
-  },
-  // GLAZED DONUTS
-  {
-    id: "RB020",
-    name: "Glazed Donuts - Box of 6",
-    category: "donuts",
-    price: 750,
-    images: ["/images/rables/donuts.png"],
-    shortDescription: "6 large classic glazed donuts",
-    longDescription: "Six large, fluffy donuts with our signature sweet glaze. Perfect for breakfast or snacking.",
-    isCustomizable: false,
-    isFeatured: false,
-    ingredients: "Flour, yeast, eggs, sugar, glaze",
-    allergens: "Contains: wheat, eggs, dairy",
-  },
-  {
-    id: "RB021",
-    name: "Glazed Donuts - Box of 8",
-    category: "donuts",
-    price: 1000,
-    images: ["/images/rables/donuts.png"],
-    shortDescription: "8 large classic glazed donuts",
-    longDescription: "Eight large glazed donuts perfect for sharing with family and friends.",
-    isCustomizable: false,
-    isFeatured: false,
-    ingredients: "Flour, yeast, eggs, sugar, glaze",
-    allergens: "Contains: wheat, eggs, dairy",
-  },
-  // ASSORTED DONUTS
-  {
-    id: "RB022",
-    name: "Assorted Donuts - Box of 6",
-    category: "donuts",
-    price: 950,
-    images: ["/images/rables/donuts.png"],
-    shortDescription: "6 large assorted flavored donuts",
-    longDescription: "A variety box of 6 large donuts with different flavors and toppings. A little something for everyone!",
-    isCustomizable: false,
-    isFeatured: true,
-    ingredients: "Flour, yeast, eggs, various toppings",
-    allergens: "Contains: wheat, eggs, dairy",
-  },
-  {
-    id: "RB023",
-    name: "Assorted Donuts - Box of 8",
-    category: "donuts",
-    price: 1200,
-    images: ["/images/rables/donuts.png"],
-    shortDescription: "8 large assorted flavored donuts",
-    longDescription: "Eight large assorted donuts with a mix of flavors and toppings for the ultimate donut experience.",
-    isCustomizable: false,
-    isFeatured: false,
-    ingredients: "Flour, yeast, eggs, various toppings",
     allergens: "Contains: wheat, eggs, dairy",
   },
 ];
