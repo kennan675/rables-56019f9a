@@ -7,24 +7,12 @@ export const PageLoader = () => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    // Simulate loading progress
-    const interval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          return 100;
-        }
-        return prev + Math.random() * 15;
-      });
-    }, 100);
-
-    // Hide loader after animation
+    // Hide loader quickly — no artificial delay
     const timer = setTimeout(() => {
       setIsActive(false);
-    }, 1800);
+    }, 800);
 
     return () => {
-      clearInterval(interval);
       clearTimeout(timer);
     };
   }, []);
@@ -40,30 +28,8 @@ export const PageLoader = () => {
           aria-live="polite"
           aria-label="Loading Rable Bakes"
         >
-          {/* Animated gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#1d1411] via-[#2f1f1c] to-[#3d2a26]">
-            {/* Floating particles */}
-            {[...Array(20)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute w-2 h-2 rounded-full bg-primary/30"
-                initial={{
-                  x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000),
-                  y: Math.random() * (typeof window !== 'undefined' ? window.innerHeight : 800),
-                  scale: Math.random() * 0.5 + 0.5,
-                }}
-                animate={{
-                  y: [null, -100],
-                  opacity: [0, 1, 0],
-                }}
-                transition={{
-                  duration: Math.random() * 3 + 2,
-                  repeat: Infinity,
-                  delay: Math.random() * 2,
-                }}
-              />
-            ))}
-          </div>
+          {/* Dark gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#1d1411] via-[#2f1f1c] to-[#3d2a26]" />
 
           {/* Glowing orb behind logo */}
           <motion.div

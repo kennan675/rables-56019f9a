@@ -10,8 +10,8 @@ type TrustItem = {
 const items: TrustItem[] = [
   {
     icon: Truck,
-    title: "Fast Delivery",
-    description: "Same day",
+    title: "Order 48hrs Prior",
+    description: "Delivery after 48 hours",
   },
   {
     icon: ShieldCheck,
@@ -20,8 +20,8 @@ const items: TrustItem[] = [
   },
   {
     icon: Clock,
-    title: "Open Daily",
-    description: "9am – 7pm",
+    title: "Mon – Sat",
+    description: "9am – 7pm | Closed Sun",
   },
   {
     icon: Phone,
